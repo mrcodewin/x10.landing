@@ -2,7 +2,7 @@
   section.signals
     .signals__container.container
       .signals__title
-        | <b> Cигналы X10 </b> — готовые решения, предсказуемый результат
+        | <span> Cигналы X10 </span> — готовые решения, предсказуемый результат
 
       .signals__list
         p.signals__list-item(

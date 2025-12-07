@@ -17,19 +17,28 @@ body {
   width: 1800px;
   margin: 0 auto;
 
-  @include media-breakpoint-down(xl){
+  //1800px
+  @include media-breakpoint-down(xxl){
     width: 1320px;
   }
 
-  @include media-breakpoint-down(lg){
+  //1320px
+  @include media-breakpoint-down(xl){
     width: 910px;
   }
 
-  @include media-breakpoint-down(md){
-    width: 768px;
+  //910px
+  @include media-breakpoint-down(lg){
+    width: calc(768px - 80px);
   }
 
+  //768px
+  @include media-breakpoint-down(md){
+    width: 425px;
+  }
+
+  //375px
   @include media-breakpoint-down(sm){
-    width: 375px;
+    width: calc(375px - 32px);
   }
 }

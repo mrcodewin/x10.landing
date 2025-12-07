@@ -2,11 +2,28 @@
   width: 100%;
   margin-top: 40px;
 
+  @include media-breakpoint-down(lg) {
+    margin-top: 0;
+  }
+
   &__container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 63px;
+
+    @include media-breakpoint-down(xxl) {
+      height: 56px;
+    }
+
+    @include media-breakpoint-down(lg) {
+      height: auto;
+      padding: 20px;
+    }
+
+    @include media-breakpoint-down(md) {
+      width: auto;
+    }
   }
 
   &__left,
@@ -14,13 +31,34 @@
     flex-shrink: 0;
   }
 
-  &__logo{
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
+    @include media-breakpoint-down(lg) {
+      display: none;
+    }
+  }
+
+  &__logo {
     width: 159px;
     height: 44px;
+
+    @include media-breakpoint-down(xl) {
+      width: 115px;
+      height: 33px;
+    }
+
+    @include media-breakpoint-down(md) {
+      width: 64px;
+      height: 18px;
+    }
   }
 
   &__nav {
     display: inline-flex;
+
     @include media-breakpoint-down(md) {
       display: none;
     }
@@ -32,6 +70,10 @@
     list-style: none;
     margin: 0;
     padding: 0;
+
+    @include media-breakpoint-down(xxl) {
+      gap: 40px;
+    }
   }
 
   &__nav-item {
@@ -41,6 +83,161 @@
     text-transform: uppercase;
     font-family: "Bounded";
     font-weight: 400;
+
+    @include media-breakpoint-down(xxl) {
+      font-size: 16px;
+    }
   }
 
+  &__button{
+    @include media-breakpoint-down(xl) {
+      padding: 14px 24px;
+    }
+
+    @include media-breakpoint-down(lg) {
+      display: none;
+    }
+  }
+
+  &__burger{
+    display: none;
+    justify-content: flex-end;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+
+    @include media-breakpoint-down(md) {
+      display: flex;
+    }
+
+    &-lines{
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      width: 34px;
+      height: 18px;
+    }
+
+    &-line{
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: $color-white;
+      transition: transform .25s ease, opacity .2s ease, top .25s ease, bottom .25s ease;
+
+      &:nth-child(1){
+        top: 0;
+      }
+      &:nth-child(2){
+        top: 8px;
+      }
+      &:nth-child(3){
+        top: 16px;
+      }
+    }
+  }
+
+  &__overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(2, 8, 6, 0.6);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: flex-end;
+    z-index: 1000;
+  }
+
+  &__drawer {
+    width: 280px;
+    max-width: 80%;
+    background: linear-gradient(180deg, #0c1f1a 0%, #0a1412 100%);
+    box-shadow: -12px 0 28px rgba(0, 0, 0, 0.4);
+    padding: 24px 24px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+
+    @include media-breakpoint-down(sm) {
+      width: 240px;
+      padding: 20px 20px 28px;
+      gap: 24px;
+    }
+
+    &-nav {
+      display: block;
+    }
+
+    &-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      margin: 0;
+      padding: 0;
+    }
+
+    &-item {
+      font-size: 16px;
+      font-family: "Bounded";
+      text-transform: uppercase;
+
+      @include media-breakpoint-down(sm) {
+        font-size: 20px;
+      }
+    }
+  }
+
+  &__close {
+    margin-left: auto;
+    width: 44px;
+    height: 44px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    &-lines{
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      width: 24px;
+      height: 18px;
+    }
+
+    &-line{
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: $color-white;
+      transition: transform .25s ease, opacity .2s ease, top .25s ease, bottom .25s ease;
+
+      &:nth-child(1){
+        top: 8px;
+        transform: rotate(45deg);
+      }
+      &:nth-child(2){
+        top: 8px;
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}
+
+.topbar-fade-enter-active,
+.topbar-fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+.topbar-fade-enter-from,
+.topbar-fade-leave-to {
+  opacity: 0;
 }

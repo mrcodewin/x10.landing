@@ -8,6 +8,7 @@ main
   IncomeSection
   SignalsSection
   ProfitabilitySection
+  CalculatorSection
 
 </template>
 
@@ -20,5 +21,6 @@ import StrategySection from '@/components/sections/strategy/strategy.vue';
 import IncomeSection from '@/components/sections/income/income.vue';
 import SignalsSection from '@/components/sections/signals/signals.vue';
 import ProfitabilitySection from '@/components/sections/profitability/profitability.vue';
+import CalculatorSection from '@/components/sections/calculator/calculator.vue';
 
 </script>

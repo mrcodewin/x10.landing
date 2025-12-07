@@ -7,8 +7,9 @@
         Swiper.profitability__swiper(
           :modules="modules"
           :loop="true"
-          :space-between="40"
-          :slides-per-view="1"
+          :space-between="30"
+          :slides-per-view="3"
+          :centered-slides="true"
           :breakpoints="swiperBreakpoints"
           :pagination="{ clickable: true }"
         )
@@ -32,24 +33,57 @@ import 'swiper/css/pagination'
 
 const modules = [Pagination]
 
-const slides = [
+const baseSlides = [
   { id: 0, src: '/images/profitability/pro1.jpg', alt: 'Доходность сигнала 1' },
   { id: 1, src: '/images/profitability/pro2.jpg', alt: 'Доходность сигнала 2' },
   { id: 2, src: '/images/profitability/pro1.jpg', alt: 'Доходность сигнала 3' },
-  { id: 3, src: '/images/profitability/pro3.jpg', alt: 'Доходность сигнала 3' },
+  { id: 3, src: '/images/profitability/pro3.jpg', alt: 'Доходность сигнала 4' },
+]
+
+const slides = [
+  ...baseSlides,
+  ...baseSlides.map((slide, index) => ({ ...slide, id: baseSlides.length + index })),
 ]
 
 const swiperBreakpoints = {
-  1920: {
+  1800: {
     slidesPerView: 3,
+    spaceBetween: 32,
     centeredSlides: true,
   },
   1400: {
-    slidesPerView: 1.6,
+    slidesPerView: 2.6,
+    spaceBetween: 28,
+    centeredSlides: true,
+  },
+  1100: {
+    slidesPerView: 2.2,
+    spaceBetween: 24,
+    centeredSlides: true,
+  },
+  900: {
+    slidesPerView: 1.8,
+    spaceBetween: 20,
+    centeredSlides: true,
+  },
+  640: {
+    slidesPerView: 1.4,
+    spaceBetween: 16,
+    centeredSlides: true,
+  },
+  480: {
+    slidesPerView: 1.2,
+    spaceBetween: 14,
+    centeredSlides: true,
+  },
+  360: {
+    slidesPerView: 1.1,
+    spaceBetween: 12,
     centeredSlides: true,
   },
   0: {
-    slidesPerView: 1,
+    slidesPerView: 1.05,
+    spaceBetween: 10,
     centeredSlides: true,
   },
 }
