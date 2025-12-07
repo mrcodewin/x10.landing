@@ -1,0 +1,37 @@
+.strategy{
+    margin-top: 250px;
+    &__container{
+        height: 757px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: url("/images/strategy.png");
+    }
+
+    &__title{
+        position: relative;
+        width: 100%;
+        display: inline-block;
+        font-size: 64px;
+        font-family: "Bounded";
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+        z-index: 0;
+        
+        &::before {
+            height: 550px;
+            width: 100%;
+            content: "";
+            position: absolute;
+            top: -66%;
+            left: 0;
+            border-radius: 50%;
+            background: #061715;
+            filter: blur(90px);
+            z-index: -1;
+        }
+    }
+
+
+}

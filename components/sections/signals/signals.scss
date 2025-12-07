@@ -1,0 +1,43 @@
+.signals{
+    margin-top: 250px;
+    &__container{
+        height: 790px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__title{
+        width: 700px;
+        text-align: left;
+        font-size: 48px;
+        font-weight: 400;
+        font-family: "Bounded";
+        letter-spacing: 1px;
+        text-transform: uppercase;
+
+        b{
+            color: $color-turquoise;
+            text-shadow:
+                0 0 12px rgba(255, 255, 255, 0.5),
+        }
+    }
+
+    &__list{
+        width: 660px;
+        display: flex;
+        flex-direction: column;
+        gap: 190px;
+
+        &-item{
+            font-family: "Bounded";
+            font-weight: 200;
+            font-size: 32px;
+            line-height: 160%;
+            opacity: 0.6;
+            text-align: right;
+        }
+    }
+
+
+}

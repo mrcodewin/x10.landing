@@ -1,0 +1,63 @@
+.stats{
+    margin-top: 250px;
+    &__container{
+        display: flex;
+        flex-direction: column;
+        gap: 120px;
+    }
+    
+    &__title{
+        display: inline-block;
+        font-size: 64px;
+        font-family: "Bounded";
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    &__highlights{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &-item{
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+
+            &__dot{
+                position: relative;
+                width: 24px;
+                height: 24px;
+                border-radius: 50%;
+                background: $color-accent;
+                filter: blur(8px);
+            }
+
+            &__text{
+                font-size: 32px;
+                font-family: "Onest";
+                font-weight: 400;
+            }
+        }
+    }
+
+    &__graph{
+        width: 100%;
+
+        &-image{
+            width: 100%;
+            margin-bottom: 24px;
+        }
+
+        &-caption{
+            font-size: 20px;
+            font-family: "Onest";
+            font-weight: 300;
+            text-align: center;
+            margin: 0;
+        }
+    }
+
+
+}

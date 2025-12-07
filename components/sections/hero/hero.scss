@@ -1,0 +1,37 @@
+.hero{
+    position: relative;
+    &__container{
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        gap: 80px;
+        left: -115px;
+    }
+    &__left{
+        flex: 3;
+    }
+
+    &__logo{
+        width: 1234px;
+        height: 347px;
+        margin: -42px -129px -42px 0px;
+        & *{
+            fill: #008B76;
+        }
+    }
+    
+    &__right{
+        flex: 2;
+    }
+
+    &__title{
+        display: inline-block;
+        width: 677px;
+        font-size: 48px;
+        font-family: "Bounded";
+        font-weight: 400;
+        text-transform: uppercase;
+    }
+
+
+}
