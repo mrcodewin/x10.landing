@@ -1,0 +1,11 @@
+<template lang="pug">
+  section.bonuses
+    .bonuses__container.container
+      .bonuses__title
+        | Получай бонусы за приглашенных пользователей
+
+      UiButton.bonuses__button(variant="accent") Подробнее
+
+</template>
+
+<style lang="scss" scoped src="./bonuses.scss"></style>

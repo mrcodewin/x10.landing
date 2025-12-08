@@ -9,6 +9,11 @@ main
   SignalsSection
   ProfitabilitySection
   CalculatorSection
+  ConnectSection
+  RewardsSection
+  CommunitySection
+  BonusesSection
+  DashboardSection
 
 </template>
 
@@ -22,5 +27,10 @@ import IncomeSection from '@/components/sections/income/income.vue';
 import SignalsSection from '@/components/sections/signals/signals.vue';
 import ProfitabilitySection from '@/components/sections/profitability/profitability.vue';
 import CalculatorSection from '@/components/sections/calculator/calculator.vue';
+import ConnectSection from '@/components/sections/connect/connect.vue';
+import RewardsSection from '@/components/sections/rewards/rewards.vue';
+import CommunitySection from '../components/sections/community/community.vue';
+import BonusesSection from '../components/sections/bonuses/bonuses.vue';
+import DashboardSection from '../components/sections/dashboard/dashboard.vue';
 
 </script>
