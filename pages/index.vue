@@ -14,6 +14,7 @@ main
   CommunitySection
   BonusesSection
   DashboardSection
+  FooterSection
 
 </template>
 
@@ -32,5 +33,6 @@ import RewardsSection from '@/components/sections/rewards/rewards.vue';
 import CommunitySection from '../components/sections/community/community.vue';
 import BonusesSection from '../components/sections/bonuses/bonuses.vue';
 import DashboardSection from '../components/sections/dashboard/dashboard.vue';
+import FooterSection from '../components/sections/footer/footer.vue';
 
 </script>

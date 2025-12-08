@@ -5,8 +5,8 @@
 
       .footer__columns
         .footer__column
-          ul.footer__column-list
-            li.ul.footer__column-list__item(v-for="item in firstList" :key="item.id")
+          ul.footer__column-list.links
+            li.footer__column-list__item(v-for="item in firstList" :key="item.id")
               a(:href="item.href") {{ item.label }}
 
         .footer__column.title
@@ -14,7 +14,7 @@
 
         .footer__column
           ul.footer__column-list
-            li.ul.footer__column-list__item(v-for="item in secondList" :key="item.id")
+            li.footer__column-list__item(v-for="item in secondList" :key="item.id")
               a(:href="item.href") {{ item.label }}
 
     .footer__light
