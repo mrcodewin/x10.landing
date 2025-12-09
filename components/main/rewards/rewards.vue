@@ -2,14 +2,13 @@
   section.rewards
     .rewards__container.container
       .rewards__header
-        .rewards__header-title
-          | Многоуровневая система вознаграждений: Зарабатывайте в криптовалюте!
+        .rewards__header-title Многоуровневая система вознаграждений: Зарабатывайте в криптовалюте!
 
-        .rewards__header-label
-          | Это синергия твоего желания расти и наших передовых технологий
+        .rewards__header-label Это синергия твоего желания расти и наших передовых технологий
 
         .rewards__header-button
-          UiButton(variant="accent") Начать сейчас
+          a(href="/app")
+            UiButton(variant="accent") Начать сейчас
 
       .rewards__body
         p.rewards__body-info X10 — это возможность зарабатывать не только на финансовых рынках, но и приглашая  в систему клиентов или партнёров.

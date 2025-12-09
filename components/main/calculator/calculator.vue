@@ -1,5 +1,5 @@
 <template lang="pug">
-  section.calculator
+  section.calculator#calculator
     .calculator__container.container
       .calculator__header
         h3.calculator__title Калькулятор доходности

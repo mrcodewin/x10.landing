@@ -1,13 +1,14 @@
 <template lang="pug">
-  header.topbar
+  header.topbar#main
     .topbar__container.container
       .topbar__left
         SvgoLogo.topbar__logo
 
       nav.topbar__nav
         ul.topbar__nav-list
-          li.topbar__nav-item(v-for="item in navItems" :key="item") {{ item }}
-        
+          li.topbar__nav-item(v-for="item in navItems" :key="item.to")
+            a(:href="item.to") {{ item.name }}
+
 
       .topbar__right
         a(href="/app")
@@ -29,24 +30,29 @@
 
           nav.topbar__drawer-nav
             ul.topbar__drawer-list
-              li.topbar__drawer-item(v-for="item in navItems" :key="item") {{ item }}
+              li.topbar__drawer-item(v-for="item in navItems" :key="item.to" @click="toggleMenu")
+                a(:href="item.to") {{ item.name }}
 
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import {ref} from "vue";
 
-const navItems = ['партнеры', 'калькулятор', 'подключение']
 
-const isMenuOpen = ref(false)
+const navItems = ref([
+  {name: "комьюнити", to: "#community"},
+  {name: "калькулятор", to: "#calculator"},
+  {name: "подключение", to: "#connect"}]);
+
+const isMenuOpen = ref(false);
 
 const toggleMenu = () => {
-  isMenuOpen.value = !isMenuOpen.value
-}
+  isMenuOpen.value = !isMenuOpen.value;
+};
 
 const closeMenu = () => {
-  isMenuOpen.value = false
-}
+  isMenuOpen.value = false;
+};
 </script>
 
 <style lang="scss" scoped src="./topbar.scss"></style>
