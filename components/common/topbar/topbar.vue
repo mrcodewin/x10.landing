@@ -10,7 +10,7 @@
         
 
       .topbar__right
-        a(href="https://x10.pro/app")
+        a(href="/app")
           UiButton.topbar__button(variant="accent") Присоединиться
 
       button.topbar__burger(type="button" @click="toggleMenu" aria-label="Открыть меню")
