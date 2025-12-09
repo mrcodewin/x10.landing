@@ -4,7 +4,7 @@
       .connect__header
         .connect__header-title Подключитесь в 3 простых шага
         .connect__header-button
-          a(href="/app")
+          a(href="/app/login")
             UiButton(variant="accent") Начать сейчас
 
       .connect__body

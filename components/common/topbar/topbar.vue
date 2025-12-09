@@ -11,7 +11,7 @@
 
 
       .topbar__right
-        a(href="/app")
+        a(href="/app/login")
           UiButton.topbar__button(variant="accent") Присоединиться
 
       button.topbar__burger(type="button" @click="toggleMenu" aria-label="Открыть меню")

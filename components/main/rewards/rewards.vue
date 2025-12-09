@@ -7,7 +7,7 @@
         .rewards__header-label Это синергия твоего желания расти и наших передовых технологий
 
         .rewards__header-button
-          a(href="/app")
+          a(href="/app/login")
             UiButton(variant="accent") Начать сейчас
 
       .rewards__body

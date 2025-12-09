@@ -2,7 +2,7 @@
   section.bonuses
     .bonuses__container.container
       .bonuses__title Получай бонусы за приглашенных пользователей
-      a(href="/app")
+      a(href="/app/login")
         UiButton.bonuses__button(variant="accent") Подробнее
 
 </template>

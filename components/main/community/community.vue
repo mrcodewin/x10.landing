@@ -7,7 +7,7 @@
         .community__body-info
           p.community__body-info__text Здесь ты учишься, обмениваешься опытом и растёшь вместе с другими инвесторами и партнёрами.
           p.community__body-info__text Доступ к закрытой среде, где всегда есть ответы, поддержка и новые возможности для заработка.
-          a(href="/app")
+          a(href="/app/login")
             UiButton.community__body-info__button(variant="accent") Стать частью команды
 
         .community__body-cards
