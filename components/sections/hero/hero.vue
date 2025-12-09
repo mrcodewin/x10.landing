@@ -2,11 +2,16 @@
   section.hero
     .hero__container
       .hero__left
-        SvgoBigLogo.hero__logo
+        .hero__logo-wrap
+          UiAnimateLogo.hero__logo
 
       .hero__right
         p.hero__title умножай капитал вместе с рынком
-        UiButton(variant="accent") Начать сейчас
+        p.hero__mobile-label Экосистема для роста капитала
+        UiButton(variant="accent").hero__button Начать сейчас
+
+    
+    .hero__label Экосистема для роста капитала
 
 </template>
 

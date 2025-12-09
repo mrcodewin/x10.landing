@@ -19,6 +19,7 @@
     @include media-breakpoint-down(lg) {
       height: auto;
       padding: 20px;
+      width: 100%;
     }
 
     @include media-breakpoint-down(md) {

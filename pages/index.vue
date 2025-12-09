@@ -1,7 +1,7 @@
 <template lang="pug">
 main
   TopbarSection
-  //- HeroSection
+  HeroSection
   WhatWeGiveSection
   StatsSection
   StrategySection

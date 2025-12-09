@@ -98,7 +98,6 @@
             }
 
             &__button{
-                font-size: 20px;
                 padding: 22px;
 
                 @include media-breakpoint-down(xl){
@@ -110,7 +109,6 @@
                 }
 
                 @include media-breakpoint-down(md){
-                    font-size: 14px;
                     padding: 16px;
                 }
             }
