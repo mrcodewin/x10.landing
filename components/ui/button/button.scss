@@ -1,0 +1,25 @@
+.ui-button {
+  width: 100%;
+  padding: 12px 51px;
+  border-radius: 16px;
+  border: 1px solid transparent;
+  font-size: 20px;
+  font-weight: 500;
+  font-family: "Onest";
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s, opacity 0.2s;
+
+  @include media-breakpoint-down(xl){
+      font-size: 14px;
+  }
+
+  &--accent {
+    background-color: $color-accent;
+    color: $color-white;
+    border-color: $color-accent;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}

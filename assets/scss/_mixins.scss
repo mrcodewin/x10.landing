@@ -1,0 +1,11 @@
+@use 'variables' as *;
+@use 'sass:map';
+
+@mixin media-breakpoint-down($name) {
+  $value: map.get($breakpoints, $name);
+  @if $value {
+    @media (max-width: $value) {
+      @content;
+    }
+  }
+}

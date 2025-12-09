@@ -1,0 +1,44 @@
+@use 'fonts';
+@use 'variables' as *;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Onest', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background: $color-bg;
+  color: $color-white;
+}
+
+.container{
+  width: 1800px;
+  margin: 0 auto;
+
+  //1800px
+  @include media-breakpoint-down(xxl){
+    width: 1320px;
+  }
+
+  //1320px
+  @include media-breakpoint-down(xl){
+    width: 910px;
+  }
+
+  //910px
+  @include media-breakpoint-down(lg){
+    width: calc(768px - 80px);
+  }
+
+  //768px
+  @include media-breakpoint-down(md){
+    width: 425px;
+  }
+
+  //375px
+  @include media-breakpoint-down(sm){
+    width: calc(375px - 32px);
+  }
+}

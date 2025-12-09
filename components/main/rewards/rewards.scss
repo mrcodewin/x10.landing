@@ -1,0 +1,195 @@
+.rewards{
+    margin-top: 250px;
+
+    @include media-breakpoint-down(xxl){
+        margin-top: 230px;
+    }
+
+    @include media-breakpoint-down(xl){
+        margin-top: 200px;
+    }
+
+    @include media-breakpoint-down(md){
+        margin-top: 160px;
+    }
+    &__container{
+        display: flex;
+        flex-direction: column;
+        gap: 80px;
+
+        @include media-breakpoint-down(xxl){
+            gap: 60px;
+        }
+
+        @include media-breakpoint-down(lg){
+            gap: 40px;
+        }
+    }
+
+    &__header{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+
+        &::before {
+            height: 550px;
+            width: 100%;
+            content: "";
+            position: absolute;
+            top: -66%;
+            left: 0;
+            border-radius: 50%;
+            background: $color-turquoise;
+            opacity: 0.15;
+            filter: blur(50px);
+            z-index: -1;
+
+            @include media-breakpoint-down(md){
+                content: none;
+            }
+        }
+
+        &-title{
+            width: 100%;
+            font-size: 48px;
+            line-height: 100%;
+            font-family: "Bounded";
+            font-weight: 400;
+            text-transform: uppercase;
+            text-align: center;
+
+            @include media-breakpoint-down(xxl){
+                font-size: 40px;
+            }
+
+            @include media-breakpoint-down(xl){
+                width: 84%;
+                font-size: 32px;
+            } 
+
+            @include media-breakpoint-down(lg){
+                font-size: 24px;
+            }
+
+            @include media-breakpoint-down(md){
+                font-size: 16px;
+            }
+
+            @include media-breakpoint-down(sm){
+                width: 100%;
+            }
+        }
+
+        &-label{
+            font-family: "Onest";
+            font-size: 32px;
+            line-height: 160%;
+            font-weight: 300;
+
+            @include media-breakpoint-down(xl){
+                font-size: 16px;
+            }
+
+            @include media-breakpoint-down(md){
+                font-size: 14px;
+                text-align: center;
+                display: inline-block;
+                width: 80%;
+            }
+
+            @include media-breakpoint-down(sm){
+                width: 100%;
+            }
+        }
+
+        &-button{
+            display: flex;
+            justify-content: center;
+
+            @include media-breakpoint-down(md){
+                display: none;
+            }
+
+            :deep(button){
+                width: auto;
+                padding: 12px 24px;
+
+                @include media-breakpoint-down(md){
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    &__body{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 415px;
+
+        @include media-breakpoint-down(xxl){
+            gap: 210px;
+        }
+
+        @include media-breakpoint-down(xl){
+            gap: 120px;
+        }
+
+        @include media-breakpoint-down(lg){
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        @include media-breakpoint-down(md){
+            flex-direction: column-reverse;
+        }
+
+        &-info{
+            font-size: 32px;
+            font-weight: 400;
+            line-height: 160%;
+            text-transform: uppercase;
+            font-family: "Bounded";
+
+            @include media-breakpoint-down(xxl){
+                font-size: 24px;
+            }
+
+            @include media-breakpoint-down(xl){
+                font-size: 16px;
+            }
+
+            @include media-breakpoint-down(lg){
+                font-size: 16px;
+                text-align: center;
+            }
+
+            @include media-breakpoint-down(md){
+                font-size: 12px;
+                color: $color-turquoise;
+            }
+
+            @include media-breakpoint-down(sm){
+                font-family: "Onest";
+            }  
+        }
+
+        &-video{
+            width: 50%;
+            border-radius: 45px;
+
+            @include media-breakpoint-down(lg){
+                width: 70%;
+            }
+
+            @include media-breakpoint-down(md){
+                width: 100%;
+            }
+        }
+    }
+}

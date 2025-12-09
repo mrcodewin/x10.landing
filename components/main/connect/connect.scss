@@ -1,0 +1,163 @@
+.connect{
+    margin-top: 250px;
+
+    @include media-breakpoint-down(xxl){
+        margin-top: 230px;
+    }
+
+    @include media-breakpoint-down(xl){
+        margin-top: 200px;
+    }
+
+    @include media-breakpoint-down(md){
+        margin-top: 160px;
+    }
+    &__container{
+        display: flex;
+        flex-direction: column;
+        gap: 120px;
+
+        @include media-breakpoint-down(xl){
+            gap: 80px;
+        }
+
+        @include media-breakpoint-down(lg){
+            gap: 60px;
+        }
+    }
+
+    &__header{
+        &-title{
+            position: relative;
+            width: 100%;
+            font-size: 40px;
+            line-height: 160%;
+            font-family: "Bounded";
+            font-weight: 400;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 40px;
+
+            @include media-breakpoint-down(xl){
+                font-size: 32px;
+            }
+
+            @include media-breakpoint-down(lg){
+                font-size: 40px;
+            }
+
+            @include media-breakpoint-down(md){
+                font-size: 20px;
+            }
+
+            @include media-breakpoint-down(sm){
+                width: 75%;
+                margin: 0 auto 40px;
+            }
+        }
+
+        &-button{
+            display: flex;
+            justify-content: center;
+
+            :deep(button){
+                width: auto;
+                padding: 12px 24px;
+
+                @include media-breakpoint-down(md){
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    &__body{
+        position: relative;
+        @include media-breakpoint-down(md){
+            display: flex;
+            gap: 40px;
+        }
+        &-line{
+            width: 80%;
+            height: 100%;
+            background: linear-gradient(90deg, $color-accent 75%, $color-white 100%);
+            box-shadow: 0 0 12px #00CFB150;
+            border-radius: 8px;
+
+            @include media-breakpoint-down(md){
+                width: 100%;
+                height: 80%;
+                background: linear-gradient($color-accent 75%, $color-white 100%);
+            }
+
+            &__wrap{
+                width: 100%;
+                height: 37px;
+                background-color: $color-black-grey;
+                border-radius: 8px;
+                margin-bottom: 60px;
+
+                @include media-breakpoint-down(md){
+                    margin-bottom: 0;
+                    width: 40px;
+                    height: 365px;
+                }
+            }
+        }
+
+        &-captions{
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 220px;
+
+            @include media-breakpoint-down(xxl){
+                gap: 120px;
+            }
+
+            @include media-breakpoint-down(xl){
+                gap: 110px;
+            }
+
+            @include media-breakpoint-down(lg){
+                gap: 20px;
+            }
+
+            @include media-breakpoint-down(md){
+                flex-direction: column;
+                align-items: flex-end;
+                gap: 100px;
+            }
+
+            &__caption{
+                font-size: 20px;
+                font-weight: 300;
+                font-family: "Onest";
+                margin: 0;
+                max-width: 450px;
+
+                @include media-breakpoint-down(xxl){
+                    font-size: 16px;
+                    max-width: 375px;
+                }
+
+                @include media-breakpoint-down(xl){
+                    font-size: 14px;
+                    max-width: 240px;
+                }
+
+                @include media-breakpoint-down(lg){
+                    font-size: 16px;
+                    max-width: inherit;
+                }
+
+                @include media-breakpoint-down(md){
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+
+
+}
