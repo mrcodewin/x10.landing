@@ -1,7 +1,7 @@
 services:
     app:
-        container_name: x10-front
-        image: x10-front
+        container_name: x10-landing
+        image: x10-landing
         build:
             context: .
             dockerfile: Dockerfile
