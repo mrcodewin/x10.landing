@@ -1,4 +1,4 @@
-FROM node:23-alpine AS builder
+FROM node:23 AS builder
 
 WORKDIR /app
 COPY package.json package-lock.json* ./
@@ -7,7 +7,7 @@ COPY . .
 ENV NUXT_TELEMETRY_DISABLED=1
 RUN npm run build
 
-FROM node:23-alpine
+FROM node:23
 
 WORKDIR /app
 COPY --from=builder /app/.output ./.output
