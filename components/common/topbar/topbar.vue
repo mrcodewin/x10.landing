@@ -10,7 +10,8 @@
         
 
       .topbar__right
-        UiButton.topbar__button(variant="accent") Присоединиться
+        a(href="/app")
+          UiButton.topbar__button(variant="accent") Присоединиться
 
       button.topbar__burger(type="button" @click="toggleMenu" aria-label="Открыть меню")
         span.topbar__burger-lines
