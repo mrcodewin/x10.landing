@@ -7,7 +7,7 @@
         .calculator__note
           span.calculator__note-icon *
           p.calculator__note-text Данные в расчетах являются примером и не гарантируют точности результата
-          
+
 
       .calculator__body
         .calculator__tabs
@@ -29,9 +29,9 @@
                 input(
                   v-model.number="initialCapital"
                   type="range"
-                  min="0"
-                  max="10000000"
-                  step="10000"
+                  min="100"
+                  max="1000000"
+                  step="500"
                 )
 
               .calculator__field
@@ -41,7 +41,7 @@
                 input(
                   v-model.number="monthlyDeposit"
                   type="range"
-                  min="0"
+                  min="100"
                   max="50000"
                   step="500"
                 )
@@ -54,79 +54,60 @@
                 input(
                   v-model.number="months"
                   type="range"
-                  min="0"
-                  max="12"
+                  min="1"
+                  max="36"
                   step="1"
-                )
-              
-              .calculator__field
-                .calculator__field-top
-                  span.calculator__field-label Торговый объем
-                  span.calculator__field-value {{ formatCurrency(volume) }} $
-                input(
-                  v-model.number="volume"
-                  type="range"
-                  min="0"
-                  max="3000000"
-                  step="10000"
                 )
 
           .calculator__result
             p.calculator__result-label Ваш капитал через {{ monthsLabel }}:
-            .calculator__result-value {{ formatCurrency(projectedCapital) }} $
+            .calculator__result-value {{ formatCurrency(calcInvestment) }} $
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
+import {computed, ref} from "vue";
+
 
 const strategies = [
-  { key: 'conservative', label: 'Conservative', percent: 6 },
-  { key: 'balanced', label: 'Balanced', percent: 9 },
-  { key: 'dynamic', label: 'Dynamic', percent: 12 },
-]
+  {key: "conservative", label: "Сигналы", percent: 400},
+  {key: "balanced", label: "X10 Base", percent: 300},
+  {key: "dynamic", label: "X10 Max", percent: 580}];
 
-const activeStrategy = ref(strategies[0])
-const initialCapital = ref(1000000)
-const months = ref(1)
-const monthlyDeposit = ref(1000)
-const volume = ref(1789000)
+const activeStrategy = ref(strategies[0]);
+const initialCapital = ref(2000);
+const months = ref(6);
+const monthlyDeposit = ref(1000);
 
-const calcInvestment = ({ initialCapital, months, monthlyDeposit, volume, percent }) => {
-  const r = percent / 100
-  const b = 0.05 * volume
+const calcInvestment = computed(() => {
+  const initial = initialCapital.value;
+  const rate = activeStrategy.value.percent / 100;
+  const m = months.value;
+  const monthly = monthlyDeposit.value;
+  const monthlyRate = rate / 12;
 
-  const growthFactor = Math.pow(1 + r, months)
+  const finalFromInitial = initial * Math.pow(1 + monthlyRate, m);
 
-  const result = initialCapital * growthFactor + (monthlyDeposit + b) * ((growthFactor - 1) / r)
+  const finalFromPayments = monthlyRate === 0 ? monthly * months : monthly *
+      ((Math.pow(1 + monthlyRate, m) - 1) / monthlyRate);
 
-  return result
-}
+  return (finalFromInitial + finalFromPayments) || 0;
+});
 
-const formatCurrency = (value) => new Intl.NumberFormat('ru-RU').format(Math.round(value))
+const formatCurrency = (value) => new Intl.NumberFormat("ru-RU").format(Math.round(value));
 
 const monthsLabel = computed(() => {
-  const value = months.value
+  const value = months.value;
 
-  if (value % 10 === 1 && value % 100 !== 11) {
-    return `${value} месяц`
+  if(value % 10 === 1 && value % 100 !== 11) {
+    return `${value} месяц`;
   }
 
-  if ([2, 3, 4].includes(value % 10) && ![12, 13, 14].includes(value % 100)) {
-    return `${value} месяца`
+  if([2, 3, 4].includes(value % 10) && ![12, 13, 14].includes(value % 100)) {
+    return `${value} месяца`;
   }
 
-  return `${value} месяцев`
-})
-
-const projectedCapital = computed(() =>
-  calcInvestment({
-    initialCapital: initialCapital.value,
-    months: months.value,
-    monthlyDeposit: monthlyDeposit.value,
-    volume: volume.value,
-    percent: activeStrategy.value.percent,
-  }),
-)
+  return `${value} месяцев`;
+});
 </script>
 
 <style lang="scss" scoped src="./calculator.scss"></style>
