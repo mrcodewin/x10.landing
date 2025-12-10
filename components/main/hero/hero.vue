@@ -8,7 +8,7 @@
       .hero__right
         p.hero__title умножай капитал вместе с рынком
         p.hero__mobile-label Экосистема для роста капитала
-        a(href="/app/login")
+        a(href="/app/login").hero__link
           UiButton(variant="accent").hero__button Начать сейчас
     .hero__label Экосистема для роста капитала
 

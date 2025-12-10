@@ -32,7 +32,7 @@
         font-family: "Bounded";
         font-weight: 400;
         text-transform: uppercase;
-        text-align: center;
+        text-align: left;
 
         @include media-breakpoint-down(xl){
             font-size: 32px;
@@ -102,6 +102,7 @@
 
                 @include media-breakpoint-down(xl){
                     padding: 16px;
+                    width: 100%;
                 }
 
                 @include media-breakpoint-down(lg){

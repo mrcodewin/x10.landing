@@ -1,6 +1,6 @@
 <template lang="pug">
   section.profitability
-    .profitability__container.container
+    .profitability__container
       h3.profitability__title Доходность сигналов
 
       .profitability__slider
