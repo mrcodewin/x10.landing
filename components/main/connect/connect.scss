@@ -78,22 +78,18 @@
             gap: 40px;
         }
         &-line{
-            width: 80%;
+            position: absolute;
+            inset: 0;
+            width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, $color-accent 75%, $color-white 100%);
-            box-shadow: 0 0 12px #00CFB150;
             border-radius: 8px;
-
-            @include media-breakpoint-down(md){
-                width: 100%;
-                height: 80%;
-                background: linear-gradient($color-accent 75%, $color-white 100%);
-            }
+            overflow: hidden;
 
             &__wrap{
+                position: relative;
                 width: 100%;
                 height: 37px;
-                background-color: $color-black-grey;
+                background: $color-black-grey;
                 border-radius: 8px;
                 margin-bottom: 60px;
 
@@ -101,6 +97,22 @@
                     margin-bottom: 0;
                     width: 40px;
                     height: 365px;
+                }
+            }
+
+            &-fill{
+                position: absolute;
+                inset: 0;
+                height: 100%;
+                width: var(--connect-progress, 0%);
+                background: linear-gradient(90deg, $color-accent 75%, $color-white 100%);
+                box-shadow: 0 0 12px #00CFB150;
+                border-radius: 8px;
+
+                @include media-breakpoint-down(md){
+                    width: 100%;
+                    height: var(--connect-progress, 0%);
+                    background: linear-gradient($color-accent 75%, $color-white 100%);
                 }
             }
         }
@@ -135,6 +147,13 @@
                 font-family: "Onest";
                 margin: 0;
                 max-width: 450px;
+                opacity: 0.6;
+
+                &.is-active{
+                    opacity: 1;
+                    text-shadow:
+                        0 0 12px rgba(255, 255, 255, 0.5);
+                }
 
                 @include media-breakpoint-down(xxl){
                     font-size: 16px;
