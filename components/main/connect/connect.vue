@@ -1,11 +1,11 @@
 <template lang="pug">
-  section.connect(ref="connectSection")
+  section.connect#connect(ref="connectSection")
     .connect__container.container
       .connect__header
-        .connect__header-title
-          | Подключитесь в 3 простых шага
+        .connect__header-title Подключитесь в 3 простых шага
         .connect__header-button
-          UiButton(variant="accent") Начать сейчас
+          a(href="/app/login")
+            UiButton(variant="accent") Начать сейчас
 
       .connect__body
         .connect__body-line__wrap

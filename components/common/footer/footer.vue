@@ -24,7 +24,7 @@
 
 const firstList = ref([
   {id: 0, label: "Главная", href: "#main"},
-  {id: 1, label: "Партнерская программа", href: "#partners"},
+  {id: 1, label: "Партнерская программа", href: "/app"},
   {id: 2, label: "Калькулятор", href: "#calculator"},
   {id: 3, label: "Подключение", href: "#connect"}
 ])

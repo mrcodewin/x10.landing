@@ -1,5 +1,5 @@
 <template lang="pug">
-  section.community
+  section.community#community
     .community__container.container
       .community__title X10 — это коммьюнити
 
@@ -7,7 +7,8 @@
         .community__body-info
           p.community__body-info__text Здесь ты учишься, обмениваешься опытом и растёшь вместе с другими инвесторами и партнёрами.
           p.community__body-info__text Доступ к закрытой среде, где всегда есть ответы, поддержка и новые возможности для заработка.
-          UiButton.community__body-info__button(variant="accent") Стать частью команды
+          a(href="/app/login")
+            UiButton.community__body-info__button(variant="accent") Стать частью команды
 
         .community__body-cards
           img.community__body-cards__card(

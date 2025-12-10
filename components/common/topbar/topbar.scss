@@ -85,12 +85,17 @@
     font-family: "Bounded";
     font-weight: 400;
 
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+
     @include media-breakpoint-down(xxl) {
       font-size: 16px;
     }
   }
 
-  &__button{
+  &__button {
     @include media-breakpoint-down(xl) {
       padding: 14px 24px;
     }
@@ -100,7 +105,7 @@
     }
   }
 
-  &__burger{
+  &__burger {
     display: none;
     justify-content: flex-end;
     border: none;
@@ -111,7 +116,7 @@
       display: flex;
     }
 
-    &-lines{
+    &-lines {
       position: relative;
       display: flex;
       align-items: center;
@@ -121,7 +126,7 @@
       height: 18px;
     }
 
-    &-line{
+    &-line {
       position: absolute;
       left: 0;
       right: 0;
@@ -129,13 +134,15 @@
       background: $color-white;
       transition: transform .25s ease, opacity .2s ease, top .25s ease, bottom .25s ease;
 
-      &:nth-child(1){
+      &:nth-child(1) {
         top: 0;
       }
-      &:nth-child(2){
+
+      &:nth-child(2) {
         top: 8px;
       }
-      &:nth-child(3){
+
+      &:nth-child(3) {
         top: 16px;
       }
     }
@@ -185,6 +192,11 @@
       font-family: "Bounded";
       text-transform: uppercase;
 
+      a {
+        color: #fff;
+        text-decoration: none;
+      }
+
       @include media-breakpoint-down(sm) {
         font-size: 20px;
       }
@@ -203,7 +215,7 @@
     justify-content: center;
     gap: 8px;
 
-    &-lines{
+    &-lines {
       position: relative;
       display: flex;
       align-items: center;
@@ -213,7 +225,7 @@
       height: 18px;
     }
 
-    &-line{
+    &-line {
       position: absolute;
       left: 0;
       right: 0;
@@ -221,11 +233,12 @@
       background: $color-white;
       transition: transform .25s ease, opacity .2s ease, top .25s ease, bottom .25s ease;
 
-      &:nth-child(1){
+      &:nth-child(1) {
         top: 8px;
         transform: rotate(45deg);
       }
-      &:nth-child(2){
+
+      &:nth-child(2) {
         top: 8px;
         transform: rotate(-45deg);
       }

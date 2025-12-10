@@ -1,0 +1,14 @@
+services:
+    app:
+        container_name: x10-landing
+        image: x10-landing
+        build:
+            context: .
+            dockerfile: Dockerfile
+        restart: unless-stopped
+        env_file:
+            - .env
+        environment:
+            NODE_ENV: production
+        ports:
+            - "${APP_PORT:-3000}:3000"
