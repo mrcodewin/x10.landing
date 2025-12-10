@@ -19,6 +19,8 @@
 </template>
 
 <script setup>
+import { useIntersectionObserver, useWindowScroll } from '@vueuse/core';
+
 const list = ref([
   {id: 0, text: "Для ручной торговли собрали лучшие практики"},
   {id: 1, text: "Винрейт ручных сделок — 99,8%, и именно этому мы обучаем шаг  за шагом."},
@@ -27,17 +29,9 @@ const list = ref([
 
 const signalsSection = ref(null)
 const progress = ref(0)
+const sectionBounds = ref({ top: 0, height: 0 })
 
 const clamp = (value, min = 0, max = 1) => Math.min(max, Math.max(min, value))
-
-const getScrollProgress = (element) => {
-  const rect = element.getBoundingClientRect()
-  const viewportHeight = window.innerHeight
-  const distance = viewportHeight - rect.top
-  const total = rect.height + viewportHeight
-
-  return clamp(distance / total)
-}
 
 const progressPercent = computed(() => `${Math.round(progress.value * 100)}%`)
 const activeIndex = computed(() => {
@@ -47,21 +41,44 @@ const activeIndex = computed(() => {
   return Math.round(progress.value * steps)
 })
 
-const updateProgress = () => {
-  if (!signalsSection.value) return
+const updateProgress = (scrollY) => {
+  if (typeof window === 'undefined') return
 
-  progress.value = getScrollProgress(signalsSection.value)
+  const { top, height } = sectionBounds.value
+  if (!height) return
+
+  const start = top - window.innerHeight
+  const end = top + height
+
+  progress.value = clamp((scrollY - start) / (end - start))
 }
 
-onMounted(() => {
-  updateProgress()
-  window.addEventListener('scroll', updateProgress, {passive: true})
-  window.addEventListener('resize', updateProgress)
-})
+const { y } = useWindowScroll()
+const stopWatch = watch(
+  y,
+  (value) => {
+    updateProgress(value)
+  },
+  { immediate: true },
+)
+
+const { stop } = useIntersectionObserver(
+  signalsSection,
+  ([entry]) => {
+    if (!entry || typeof window === 'undefined') return
+
+    sectionBounds.value = {
+      top: entry.boundingClientRect.top + window.scrollY,
+      height: entry.boundingClientRect.height,
+    }
+
+    updateProgress(window.scrollY)
+  },
+)
 
 onBeforeUnmount(() => {
-  window.removeEventListener('scroll', updateProgress)
-  window.removeEventListener('resize', updateProgress)
+  stop()
+  stopWatch()
 })
 </script>
 

@@ -12,7 +12,7 @@ main
   ConnectSection
   RewardsSection
   CommunitySection
-  BonusesSection
+  //- BonusesSection
   DashboardSection
   FooterSection
 

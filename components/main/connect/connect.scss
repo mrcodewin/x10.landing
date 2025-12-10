@@ -60,6 +60,11 @@
             display: flex;
             justify-content: center;
 
+            a{
+                width: 100%;
+                text-align: center;
+            }
+
             :deep(button){
                 width: auto;
                 padding: 12px 24px;
@@ -108,6 +113,7 @@
                 background: linear-gradient(90deg, $color-accent 75%, $color-white 100%);
                 box-shadow: 0 0 12px #00CFB150;
                 border-radius: 8px;
+                transition: 1s width;
 
                 @include media-breakpoint-down(md){
                     width: 100%;

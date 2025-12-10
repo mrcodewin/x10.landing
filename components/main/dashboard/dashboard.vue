@@ -8,7 +8,7 @@
         .dashboard__header-label
           | Торгуй по сигналам и зарабатывай как успешный трейдер. Автоматизированная система входа в сделки без необходимости длительного анализа рынка
 
-        a(href="/app/login")
+        a(href="/app/login").dashboard__header-link
           UiButton.dashboard__header-button(variant="accent") Начать
 
       .dashboard__body
