@@ -151,6 +151,11 @@
             right: 10px;
         }
 
+        @include media-breakpoint-down(sm){
+            top: 130px;
+            height: 105%;
+        }
+
         &-track{
             position: absolute;
             inset: 0;

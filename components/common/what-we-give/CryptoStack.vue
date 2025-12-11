@@ -56,6 +56,7 @@
     &--eth {
       width: 230px;
       bottom: 10%;
+      left: 60%;
       z-index: 2;
       animation-delay: 0.4s;
       --wwg-rotate: 6deg;
