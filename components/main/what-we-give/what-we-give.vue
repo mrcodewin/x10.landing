@@ -9,7 +9,12 @@
             p.what-we-give__text-item Средства всегда остаются на личном биржевом счёте.
 
         .what-we-give__image(ref="imageContainer")
-          img(v-if="selectedItem" :src="selectedItem.image" :alt="selectedItem.title" :loop="1")
+          component(
+            v-if="selectedItem && selectedItem.component"
+            :is="selectedItem.component"
+            class="what-we-give__illustration"
+          )
+          img(v-else-if="selectedItem" :src="selectedItem.image" :alt="selectedItem.title" :loop="1")
           .what-we-give__reticle(
             v-show="overlayVisible && selectedItem.id > 1"
             :style="overlayStyle"
@@ -39,7 +44,9 @@
 </template>
 
 <script setup>
-import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
+import { computed, markRaw, onBeforeUnmount, onMounted, ref } from 'vue'
+import CryptoStack from '@/components/common/what-we-give/CryptoStack.vue'
+import SecureStack from '@/components/common/what-we-give/SecureStack.vue'
 
 const items = ref([
   {
@@ -47,14 +54,14 @@ const items = ref([
     number: '01',
     title: 'Полный контроль над деньгами',
     descr: 'При копировании сделок средства остаются на личном биржевом счете.',
-    image: '/images/main/Control.png',
+    component: markRaw(SecureStack),
   },
   {
     id: 1,
     number: '02',
     title: 'Сигналы X10 — это стратегия входов и выходов.',
     descr: 'За 5 лет из 1900 сигналов — всего 3 убыточных.',
-    image: '/images/main/Graph.gif',
+    component: markRaw(CryptoStack),
   },
   {
     id: 2,
