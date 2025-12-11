@@ -12,4 +12,4 @@ defineProps({
 })
 </script>
 
-<style lang="scss" scoped src="./button.scss"></style>
+<style lang="scss" src="./button.scss"></style>
