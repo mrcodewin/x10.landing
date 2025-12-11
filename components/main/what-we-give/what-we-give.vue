@@ -8,12 +8,7 @@
             p.what-we-give__text-item Алгоритмы X10 — ядро фонда VAL Capital.
             p.what-we-give__text-item Средства всегда остаются на личном биржевом счёте.
 
-        .what-we-give__image(
-          ref="imageContainer"
-          @mouseenter="handleMouseEnter"
-          @mousemove="handleMouseMove"
-          @mouseleave="handleMouseLeave"
-        )
+        .what-we-give__image(ref="imageContainer")
           img(v-if="selectedItem" :src="selectedItem.image" :alt="selectedItem.title")
           .what-we-give__reticle(v-show="overlayVisible" :style="overlayStyle")
             .what-we-give__reticle-square(
@@ -41,7 +36,7 @@
 </template>
 
 <script setup>
-import { computed, onMounted, ref } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 
 const items = ref([
   {
@@ -84,74 +79,139 @@ const selectItem = (itemId) => {
 
 const imageContainer = ref(null)
 const overlayPosition = ref({ x: 0, y: 0 })
-const overlayVisible = ref(false)
+const overlayVisible = ref(true)
 
-const patternSize = { width: 500, height: 500 }
+const patternSize = ref({ width: 0, height: 0 })
+const squareSize = 80
+const baseSpeed = 1
 
-const squares = [
-  { id: 0, x: 200, y: 0 },
-  { id: 1, x: 200, y: 100 },
-  { id: 2, x: 200, y: 200 },
-  { id: 3, x: 200, y: 300 },
-  { id: 4, x: 200, y: 400 },
-  { id: 5, x: 0, y: 200 },
-  { id: 6, x: 100, y: 200 },
-  { id: 7, x: 300, y: 200 },
-  { id: 8, x: 400, y: 200 },
-  { id: 9, x: 100, y: 100 },
-  { id: 10, x: 300, y: 100 },
-  { id: 11, x: 100, y: 300 },
-  { id: 12, x: 300, y: 300 },
+const baseSquares = [
+  { id: 0, x: 158, y: 0 },
+  { id: 1, x: 158, y: 79 },
+  { id: 2, x: 158, y: 158 },
+  { id: 3, x: 158, y: 237 },
+  { id: 4, x: 158, y: 316 },
+  { id: 5, x: 0, y: 158 },
+  { id: 6, x: 79, y: 158 },
+  { id: 7, x: 237, y: 158 },
+  { id: 8, x: 316, y: 158 },
+  { id: 9, x: 79, y: 79 },
+  { id: 10, x: 237, y: 79 },
+  { id: 11, x: 79, y: 237 },
+  { id: 12, x: 237, y: 237 },
 ]
 
-const setOverlayPosition = (targetX, targetY) => {
-  overlayPosition.value = {
-    x: targetX,
-    y: targetY,
-  }
+const squaresBoundary = {
+  width: Math.max(...baseSquares.map((square) => square.x)) + squareSize,
+  height: Math.max(...baseSquares.map((square) => square.y)) + squareSize,
 }
 
-const centerOverlay = (rect) => {
-  setOverlayPosition((rect.width - patternSize.width) / 2, (rect.height - patternSize.height) / 2)
-}
+const groupOffset = ref({ x: 0, y: 0 })
+const groupVelocity = ref({ vx: baseSpeed, vy: baseSpeed })
 
-const handleMouseMove = (event) => {
-  const rect = imageContainer.value?.getBoundingClientRect()
-
-  if (!rect) return
-
-  const x = event.clientX - rect.left - patternSize.width / 2
-  const y = event.clientY - rect.top - patternSize.height / 2
-
-  setOverlayPosition(x, y)
-}
-
-const handleMouseLeave = () => {
-  const rect = imageContainer.value?.getBoundingClientRect()
-
-  if (!rect) return
-
-  centerOverlay(rect)
-
-  overlayVisible.value = false
-}
-
-const handleMouseEnter = () => {
-  overlayVisible.value = true
-}
+const squares = computed(() =>
+  baseSquares.map((square) => ({
+    ...square,
+    x: square.x + groupOffset.value.x,
+    y: square.y + groupOffset.value.y,
+  })),
+)
 
 const overlayStyle = computed(() => ({
-  width: `${patternSize.width}px`,
-  height: `${patternSize.height}px`,
+  width: `${patternSize.value.width}px`,
+  height: `${patternSize.value.height}px`,
   transform: `translate3d(${overlayPosition.value.x}px, ${overlayPosition.value.y}px, 0)`,
 }))
 
-onMounted(() => {
+let animationFrameId = null
+let lastTimestamp = 0
+
+const clamp = (value, min, max) => Math.min(Math.max(value, min), max)
+
+const clampGroupToBounds = (width, height) => {
+  const maxX = Math.max(0, width - squaresBoundary.width)
+  const maxY = Math.max(0, height - squaresBoundary.height)
+
+  groupOffset.value = {
+    x: clamp(groupOffset.value.x, 0, maxX),
+    y: clamp(groupOffset.value.y, 0, maxY),
+  }
+}
+
+const updatePatternSize = () => {
   const rect = imageContainer.value?.getBoundingClientRect()
 
   if (!rect) return
 
-  centerOverlay(rect)
+  patternSize.value = { width: rect.width, height: rect.height }
+  clampGroupToBounds(rect.width, rect.height)
+}
+
+const updateGroupPosition = (delta) => {
+  const { width, height } = patternSize.value
+
+  if (!width || !height) return
+
+  const maxX = Math.max(0, width - squaresBoundary.width)
+  const maxY = Math.max(0, height - squaresBoundary.height)
+
+  let { x, y } = groupOffset.value
+  let { vx, vy } = groupVelocity.value
+
+  x += vx * delta
+  y += vy * delta
+
+  if (x <= 0 || x >= maxX) {
+    vx *= -1
+    x = clamp(x, 0, maxX)
+  }
+
+  if (y <= 0 || y >= maxY) {
+    vy *= -1
+    y = clamp(y, 0, maxY)
+  }
+
+  groupOffset.value = { x, y }
+  groupVelocity.value = { vx, vy }
+}
+
+const animateSquares = (timestamp) => {
+  if (!lastTimestamp) {
+    lastTimestamp = timestamp
+  }
+
+  const delta = (timestamp - lastTimestamp) / (1000 / 60)
+  lastTimestamp = timestamp
+
+  updateGroupPosition(delta)
+
+  animationFrameId = requestAnimationFrame(animateSquares)
+}
+
+let resizeObserver = null
+
+onMounted(() => {
+  updatePatternSize()
+
+  if (typeof ResizeObserver !== 'undefined') {
+    resizeObserver = new ResizeObserver(updatePatternSize)
+
+    if (imageContainer.value) {
+      resizeObserver.observe(imageContainer.value)
+    }
+  }
+
+  animationFrameId = requestAnimationFrame(animateSquares)
+})
+
+onBeforeUnmount(() => {
+  if (resizeObserver) {
+    resizeObserver.disconnect()
+  }
+
+  if (animationFrameId) {
+    cancelAnimationFrame(animationFrameId)
+  }
 })
 
 </script>
