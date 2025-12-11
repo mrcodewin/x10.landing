@@ -9,8 +9,11 @@
             p.what-we-give__text-item Средства всегда остаются на личном биржевом счёте.
 
         .what-we-give__image(ref="imageContainer")
-          img(v-if="selectedItem" :src="selectedItem.image" :alt="selectedItem.title")
-          .what-we-give__reticle(v-show="overlayVisible" :style="overlayStyle")
+          img(v-if="selectedItem" :src="selectedItem.image" :alt="selectedItem.title" :loop="1")
+          .what-we-give__reticle(
+            v-show="overlayVisible && selectedItem.id > 1"
+            :style="overlayStyle"
+          )
             .what-we-give__reticle-square(
               v-for="square in squares"
               :key="square.id"
