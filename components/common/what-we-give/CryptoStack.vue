@@ -40,7 +40,8 @@
     will-change: transform;
 
     &--coin {
-      bottom: 15%;
+      width: 230px;
+      bottom: 5%;
       z-index: 1;
       animation-delay: 0s;
       --wwg-rotate: -8deg;
@@ -53,9 +54,9 @@
     }
 
     &--eth {
-      bottom: 15%;
+      width: 230px;
+      bottom: 10%;
       z-index: 2;
-      width: 200px;
       animation-delay: 0.4s;
       --wwg-rotate: 6deg;
       --wwg-offset: -40px;
@@ -67,9 +68,9 @@
     }
 
     &--btc {
+      width: 230px;
       bottom: 15%;
       z-index: 3;
-      width: 190px;
       animation-delay: 0.8s;
       --wwg-rotate: -10deg;
       --wwg-offset: -160px;

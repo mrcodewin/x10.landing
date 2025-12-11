@@ -35,6 +35,7 @@
     will-change: transform;
 
     &--dollar {
+      width: 220px;
       bottom: 20%;
       z-index: 1;
       animation-delay: 0s;
@@ -48,9 +49,9 @@
     }
 
     &--block {
-      bottom: 10%;
-      z-index: 2;
       width: 200px;
+      bottom: 15%;
+      z-index: 2;
       animation-delay: 0.6s;
       --wwg-rotate: 8deg;
       --wwg-offset: -70px;
