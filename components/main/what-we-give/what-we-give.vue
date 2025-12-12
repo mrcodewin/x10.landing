@@ -48,6 +48,14 @@ import { computed, markRaw, onBeforeUnmount, onMounted, ref } from 'vue'
 import CryptoStack from '@/components/common/what-we-give/CryptoStack.vue'
 import SecureStack from '@/components/common/what-we-give/SecureStack.vue'
 
+const loadingImages = [
+  "/images/wwg/coin.png",
+  "/images/wwg/eth.png",
+  "/images/wwg/bitcoin.png",
+  "/images/main/BingX.png",
+  "/images/main/ValCap.png"
+]
+
 const items = ref([
   {
     id: 0,
@@ -212,6 +220,11 @@ onMounted(() => {
   }
 
   animationFrameId = requestAnimationFrame(animateSquares)
+
+  loadingImages.forEach(src => {
+    const img = new Image();
+    img.src = src;
+  });
 })
 
 onBeforeUnmount(() => {
