@@ -1,0 +1,84 @@
+.profit-share-bonus {
+  margin-top: 250px;
+
+  @include media-breakpoint-down(xxl){
+      margin-top: 230px;
+  }
+
+  @include media-breakpoint-down(xl){
+      margin-top: 200px;
+  }
+
+  @include media-breakpoint-down(md){
+      margin-top: 160px;
+  }
+  &__title {
+    margin: 0 auto 40px;
+    text-align: center;
+    font-family: "Bounded";
+    font-size: 40px;
+    font-weight: 400;
+    text-transform: uppercase;
+
+    @include media-breakpoint-down(xl) {
+      font-size: 32px;
+    }
+
+    @include media-breakpoint-down(md) {
+      font-size: 20px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    gap: 80px;
+    flex-wrap: wrap;
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+    min-width: 360px;
+
+    &--bars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      align-items: end;
+      gap: 24px;
+    }
+  }
+
+  &__value {
+    font-family: "Bounded";
+    font-size: 48px;
+    color: $color-accent;
+    text-shadow: 0 0 16px rgba($color-accent, 0.5);
+
+    @include media-breakpoint-down(md) {
+      font-size: 36px;
+    }
+  }
+
+  &__text {
+    font-family: "Onest";
+    font-size: 18px;
+    opacity: 0.85;
+  }
+
+  &__bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $color-accent;
+    border-radius: 16px 16px 4px 4px;
+    box-shadow: 0 12px 26px rgba($color-accent, 0.35);
+  }
+
+  &__bar-text {
+    font-family: "Bounded";
+    font-size: 20px;
+  }
+}

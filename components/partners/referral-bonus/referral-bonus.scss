@@ -1,0 +1,184 @@
+.referral-bonus {
+  margin-top: 250px;
+
+  @include media-breakpoint-down(xxl){
+      margin-top: 230px;
+  }
+
+  @include media-breakpoint-down(xl){
+      margin-top: 200px;
+  }
+
+  @include media-breakpoint-down(md){
+      margin-top: 160px;
+  }
+  &__title {
+    margin: 0 auto 80px;
+    text-align: center;
+    font-family: "Bounded";
+    font-size: 40px;
+    font-weight: 400;
+    text-transform: uppercase;
+
+    @include media-breakpoint-down(xl) {
+      font-size: 32px;
+    }
+
+    @include media-breakpoint-down(md) {
+      font-size: 16px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 80px;
+    flex-wrap: wrap;
+
+    @include media-breakpoint-down(xl) {
+      gap: 40px;
+    }
+  }
+
+  &__lines {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    gap: 131px;
+
+    @include media-breakpoint-down(md) {
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+
+  &__line-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+    font-family: "Onest";
+    font-size: 16px;
+  }
+
+  &__line-label{
+    opacity: 0.6;
+    font-weight: 300;
+    font-size: 24px;
+  }
+
+  &__line-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__dot {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: $color-accent;
+  }
+
+  &__line-percent{
+    font-family: "Bounded";
+    font-size: 60px;
+    font-weight: 400;
+  }
+
+  &__line {
+    width: 2px;
+    height: 120px;
+    background: $color-accent;
+  }
+
+  &__example {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-width: 420px;
+
+    @include media-breakpoint-down(lg) {
+      min-width: 100%;
+    }
+
+    &-label {
+      margin: 0;
+      font-family: "Onest";
+      font-size: 28px;
+    }
+
+    &-card {
+      display: flex;
+      flex-direction: column;
+      gap: 35px;
+      padding: 40px 80px;
+      border-radius: 40px;
+      background: $color-window-bg;
+      box-shadow: inset 0 0 20px rgba(190, 190, 190, 0.2509803922);
+
+      @include media-breakpoint-down(lg) {
+        padding: 24px;
+      }
+
+      &__top{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin: 0 auto;
+      }
+
+      &__bottom{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+      }
+    }
+
+    &-amount {
+      margin: 0;
+      font-family: "Bounded";
+      font-size: 40px;
+      text-align: center;
+
+      @include media-breakpoint-down(md) {
+        font-size: 28px;
+      }
+    }
+
+    &-text{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &-column{
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      &.line{
+        width: 100%;
+        height: 1px;
+        background-color:  $color-accent;
+      }
+    }
+
+    &-value {
+      font-size: 60px;
+      font-family: "Bounded";
+    }
+
+    &-action {
+      font-size: 16px;
+      opacity: 0.9;
+      text-wrap: nowrap;
+    }
+  }
+}
