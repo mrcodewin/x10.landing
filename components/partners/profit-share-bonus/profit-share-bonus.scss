@@ -13,15 +13,21 @@
       margin-top: 160px;
   }
   &__title {
-    margin: 0 auto 40px;
+    margin: 0 auto 80px;
     text-align: center;
     font-family: "Bounded";
     font-size: 40px;
     font-weight: 400;
     text-transform: uppercase;
 
+    @include media-breakpoint-down(xxl) {
+      width: 75%;
+      margin: 0 auto 60px;
+    }
+
     @include media-breakpoint-down(xl) {
       font-size: 32px;
+      margin: 0 auto 40px;
     }
 
     @include media-breakpoint-down(md) {
@@ -32,53 +38,191 @@
   &__content {
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
     gap: 80px;
-    flex-wrap: wrap;
-  }
 
-  &__column {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    flex: 1;
-    min-width: 360px;
+    @include media-breakpoint-down(lg) {
+      flex-direction: column;
+    }
 
-    &--bars {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      align-items: end;
-      gap: 24px;
+    @include media-breakpoint-down(md) {
+      gap: 40px;
     }
   }
 
+  &__column{
+    &--info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    &--bars {
+      flex: 1;
+
+      @include media-breakpoint-down(lg) {
+        flex: inherit;
+        width: 100%;
+      }
+    }
+  }
+
+  &__row {
+    display: flex;
+    column-gap: 28px;
+    align-items: center;
+  }
+
   &__value {
+    width: 40%;
     font-family: "Bounded";
-    font-size: 48px;
+    font-size: 80px;
     color: $color-accent;
-    text-shadow: 0 0 16px rgba($color-accent, 0.5);
+    line-height: 1;
+    white-space: nowrap;
+
+    @include media-breakpoint-down(xxl) {
+      font-size: 60px;
+    }
+
+    @include media-breakpoint-down(xl) {
+      font-size: 48px;
+    }
+
+    @include media-breakpoint-down(lg) {
+      width: 50%;
+      font-size: 80px;
+    }
 
     @include media-breakpoint-down(md) {
-      font-size: 36px;
+      font-size: 40px;
     }
   }
 
   &__text {
+    width: 40%;
     font-family: "Onest";
-    font-size: 18px;
-    opacity: 0.85;
+    font-size: 24px;
+    line-height: 100%;
+
+    @include media-breakpoint-down(xl) {
+      font-size: 16px;
+    }
+
+    @include media-breakpoint-down(lg) {
+      width: 50%;
+      font-size: 24px;
+    }
+
+    @include media-breakpoint-down(md) {
+      font-size: 14px;
+    }
+  }
+
+  &__bars {
+    height: 424px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    gap: 24px;
+
+    @include media-breakpoint-down(xxl) {
+      height: 400px;
+    }
+
+    @include media-breakpoint-down(xl) {
+      height: 280px;
+      gap: 16px;
+    }
+
+    @include media-breakpoint-down(lg) {
+      height: 424px;
+      gap: 24px;
+    }
+
+    @include media-breakpoint-down(lg) {
+      height: 250px;
+    }
   }
 
   &__bar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 100%;
     background: $color-accent;
-    border-radius: 16px 16px 4px 4px;
-    box-shadow: 0 12px 26px rgba($color-accent, 0.35);
-  }
+    border-radius: 16px;
 
-  &__bar-text {
-    font-family: "Bounded";
-    font-size: 20px;
+    &-item {
+      width: 260px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 40px;
+
+      @include media-breakpoint-down(xxl) {
+        width: 144px;
+      }
+
+      @include media-breakpoint-down(xl) {
+        width: 96px;
+        gap: 24px;
+      }
+
+      @include media-breakpoint-down(lg) {
+        width: 224px;
+        gap: 40px;
+      }
+
+      @include media-breakpoint-down(md) {
+        width: auto;
+        flex: 1;
+        gap: 16px;
+      }
+    }
+
+    &-label {
+      font-family: "Bounded";
+      font-size: 60px;
+      color: #fff;
+      line-height: 1;
+      white-space: nowrap;
+
+      @include media-breakpoint-down(xxl) {
+        font-size: 40px;
+      }
+
+      @include media-breakpoint-down(xl) {
+        font-size: 24px;
+      }
+
+      @include media-breakpoint-down(lg) {
+        font-size: 40px;
+      }
+
+      @include media-breakpoint-down(xl) {
+        font-size: 24px;
+      }
+
+      :deep(span){
+        font-size: 40px;
+
+        @include media-breakpoint-down(xxl) {
+          font-size: 24px;
+        }
+
+        @include media-breakpoint-down(xl) {
+          font-size: 16px;
+        }
+
+        @include media-breakpoint-down(xl) {
+          font-size: 32px;
+        }
+
+        @include media-breakpoint-down(xl) {
+          font-size: 16px;
+        }
+      }
+    }
   }
 }

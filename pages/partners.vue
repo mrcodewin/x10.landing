@@ -11,7 +11,7 @@ main
   ExtraBonusSection
   RatingBonusSection
   //- RebateBonusSection
-  //- ProfitShareBonusSection
+  ProfitShareBonusSection
   LifestylePromoSection
 
   FooterSection
