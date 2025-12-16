@@ -13,29 +13,20 @@
       margin-top: 160px;
   }
   &__title {
-    margin: 0 auto 24px;
+    margin: 0 auto 80px;
     text-align: center;
     font-family: "Bounded";
     font-size: 40px;
     font-weight: 400;
     text-transform: uppercase;
 
+    @include media-breakpoint-down(xxl) {
+      margin: 0 auto 60px;
+    }
+
     @include media-breakpoint-down(xl) {
+      margin: 0 auto 40px;
       font-size: 32px;
-    }
-
-    @include media-breakpoint-down(md) {
-      font-size: 20px;
-    }
-  }
-
-  &__subtitle {
-    margin: 12px 0 32px;
-    font-size: 24px;
-    font-weight: 300;
-
-    @include media-breakpoint-down(xl) {
-      font-size: 20px;
     }
 
     @include media-breakpoint-down(md) {
@@ -43,38 +34,224 @@
     }
   }
 
+  &__top {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 0 120px;
+
+    @include media-breakpoint-down(xxl) {
+      justify-content: space-between;
+    }
+
+    @include media-breakpoint-down(xl) {
+      margin: 0 0 80px;
+      gap: 90px;
+    }
+
+    @include media-breakpoint-down(lg) {
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    @include media-breakpoint-down(md) {
+      margin: 0 0 40px;
+    }
+
+    &-side {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+      max-width: 550px;
+      flex: 1 1 0;
+
+      @include media-breakpoint-down(xl) {
+        gap: 40px;
+      }
+
+      @include media-breakpoint-down(lg) {
+        width: 100%;
+        max-width: inherit;
+        justify-content: space-between;
+      }
+
+      @include media-breakpoint-down(sm) {
+        gap: 0;
+      }
+    }
+
+    &-value {
+      margin: 0;
+
+      @include media-breakpoint-down(sm) {
+        flex: 1;
+      }
+      span{
+        font-family: "Bounded";
+        font-size: 60px;
+        color: $color-turquoise;
+        line-height: 100%;
+        white-space: nowrap;
+
+        @include media-breakpoint-down(xl) {
+          font-size: 48px;
+        }
+
+        @include media-breakpoint-down(lg) {
+          font-size: 60px;
+        }
+
+        @include media-breakpoint-down(md) {
+          font-size: 32px;
+        }
+
+        &.mini{
+          font-size: 48px;
+
+          @include media-breakpoint-down(xl) {
+            font-size: 24px;
+          }
+
+          @include media-breakpoint-down(lg) {
+            font-size: 60px;
+          }
+
+          @include media-breakpoint-down(md) {
+            font-size: 24px;
+          }
+        }
+      }
+
+      @include media-breakpoint-down(xl) {
+        font-size: 48px;
+      }
+
+      @include media-breakpoint-down(lg) {
+        font-size: 60px;
+      }
+
+      @include media-breakpoint-down(md) {
+        font-size: 32px;
+      }
+    }
+
+    &-text {
+      margin: 0;
+      font-family: "Onest";
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 100%;
+      max-width: 255px;
+
+      @include media-breakpoint-down(xl) {
+        font-size: 14px;
+      }
+
+      @include media-breakpoint-down(lg) {
+        font-size: 16px;
+      }
+
+      @include media-breakpoint-down(md) {
+        font-size: 14px;
+      }
+
+      @include media-breakpoint-down(sm) {
+        flex: 1;
+      }      
+    }
+  }
+
+  &__subtitle {
+    font-size: 40px;
+    font-weight: 400;
+    font-family: "Bounded";
+    margin: 0 0 70px;
+    text-transform: uppercase;
+
+    @include media-breakpoint-down(xxl) {
+      font-size: 32px;
+    }
+
+    @include media-breakpoint-down(xl) {
+      font-size: 24px;
+    }
+
+    @include media-breakpoint-down(lg) {
+      text-align: center;
+      margin: 0 0 24px;
+    }
+
+    @include media-breakpoint-down(md) {
+      font-size: 14px;
+    }
+  }
+
   &__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    @include media-breakpoint-down(lg) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+    }
   }
 
   &__item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 12px;
-    padding: 20px;
-    border-radius: 16px;
-    background: rgba($color-white, 0.02);
-    box-shadow: inset 0 -2px 0 0 $color-turquoise;
-    font-family: "Onest";
-    text-align: center;
-  }
+    gap: 24px;
 
-  &__label {
-    font-size: 16px;
-    opacity: 0.85;
+    --minLine: clamp(30px, 4vw, 50px);
+    --maxLine: clamp(220px, 24vw, 375px);
+
+    --len: calc(var(--minLine) + (var(--maxLine) - var(--minLine)) * var(--t));
+
+    @include media-breakpoint-down(lg) {
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 16px;
+
+      --minLine: clamp(60px, 30vw, 230px);
+      --maxLine: clamp(140px, 65vw, 540px);
+    }
+
+    @include media-breakpoint-down(md) {
+      --minLine: clamp(30px, 5vw, 120px);
+      --maxLine: clamp(140px, 30vw, 320px);
+    }
   }
 
   &__line {
     width: 2px;
-    height: 90px;
+    height: var(--len);
     background: $color-turquoise;
+
+    @include media-breakpoint-down(lg) {
+      height: 2px;
+      width: var(--len);
+    }
   }
 
+  &__label,
   &__value {
     font-family: "Bounded";
-    font-size: 20px;
+    font-size: 24px;
+    white-space: nowrap;
+
+    @include media-breakpoint-down(xxl) {
+      font-size: 16px;
+    }
+
+    @include media-breakpoint-down(xl) {
+      font-size: 12px;
+    }
+
+    @include media-breakpoint-down(lg) {
+      font-size: 14px;
+    }
   }
 }
