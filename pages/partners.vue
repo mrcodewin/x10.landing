@@ -9,7 +9,7 @@ main
   BonusesSection
   ReferralBonusSection
   ExtraBonusSection
-  //- RatingBonusSection
+  RatingBonusSection
   //- RebateBonusSection
   //- ProfitShareBonusSection
   //- LifestylePromoSection
