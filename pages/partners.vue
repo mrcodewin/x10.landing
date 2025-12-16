@@ -12,7 +12,7 @@ main
   RatingBonusSection
   //- RebateBonusSection
   //- ProfitShareBonusSection
-  //- LifestylePromoSection
+  LifestylePromoSection
 
   FooterSection
 </template>
