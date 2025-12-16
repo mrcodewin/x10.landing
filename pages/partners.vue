@@ -8,7 +8,7 @@ main
   QualificationIncomeSection
   BonusesSection
   ReferralBonusSection
-  //- ExtraBonusSection
+  ExtraBonusSection
   //- RatingBonusSection
   //- RebateBonusSection
   //- ProfitShareBonusSection

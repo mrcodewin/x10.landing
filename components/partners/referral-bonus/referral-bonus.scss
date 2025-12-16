@@ -199,29 +199,13 @@
       }
 
       &__top{
-        width: 50%;
-        display: flex;
+        display: inline-flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        align-items: stretch;
+        width: fit-content;
+        max-width: 100%;
         gap: 8px;
         margin: 0 auto;
-
-        @include media-breakpoint-down(xxl) {
-          width: 90%;
-        }
-
-        @include media-breakpoint-down(xl) {
-          width: 100%;
-        }
-
-        @include media-breakpoint-down(lg) {
-          width: 60%;
-        }
-
-        @include media-breakpoint-down(sm) {
-          width: 80%;
-        }
       }
 
       &__bottom{
