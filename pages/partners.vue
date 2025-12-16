@@ -1,12 +1,13 @@
 <template lang="pug">
 main
   TopbarSection
-  
+
   HeroSection
   WhatWeGiveSection
   CalculatorVpSection
   ConversionSection
   QualificationIncomeSection
+  ExtensionSection
   BonusesSection
   ReferralBonusSection
   ExtraBonusSection
@@ -26,6 +27,7 @@ import WhatWeGiveSection from '../components/partners/what-we-give/what-we-give.
 import CalculatorVpSection from '../components/partners/calculator-vp/calculator-vp.vue';
 import ConversionSection from '../components/partners/conversion/conversion.vue';
 import QualificationIncomeSection from '../components/partners/qualification-income/qualification-income.vue'
+import ExtensionSection from '../components/partners/extension/extension.vue';
 import BonusesSection from '../components/partners/bonuses/bonuses.vue'
 import ReferralBonusSection from '../components/partners/referral-bonus/referral-bonus.vue'
 import ExtraBonusSection from '../components/partners/extra-bonus/extra-bonus.vue'
