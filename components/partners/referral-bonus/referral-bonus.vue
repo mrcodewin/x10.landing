@@ -5,11 +5,11 @@ section.referral-bonus
     .referral-bonus__content
       .referral-bonus__lines
         .referral-bonus__line-item(v-for="line in referralLines" :key="line.label")
-          span.referral-bonus__line-label {{ line.label }}
-          .referral-bonus__line-marker
-            span.referral-bonus__line
-            span.referral-bonus__dot
-          span.referral-bonus__line-percent {{ line.percent }}
+          span.referral-bonus__line-item__label {{ line.label }}
+          .referral-bonus__line-item__marker
+            span.referral-bonus__line-item__line
+            span.referral-bonus__line-item__dot
+          span.referral-bonus__line-item__percent {{ line.percent }}
 
       .referral-bonus__example
         p.referral-bonus__example-label Пример:
