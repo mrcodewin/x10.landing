@@ -150,6 +150,7 @@
     width: 100%;
     background: $color-accent;
     border-radius: 16px;
+    transition: height 0.8s ease;
 
     &-item {
       width: 260px;

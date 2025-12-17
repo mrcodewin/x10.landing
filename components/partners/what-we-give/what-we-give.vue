@@ -3,14 +3,22 @@
     .what-we-give__container.container
       .what-we-give__left
         .what-we-give__image(ref="imageContainer")
-          component(
-            v-if="selectedItem && selectedItem.component"
-            :is="selectedItem.component"
-            class="what-we-give__illustration"
-          )
-          img(v-else-if="selectedItem" :src="selectedItem.image" :alt="selectedItem.title" :loop="1")
+          Transition(name="what-we-give-fade" mode="out-in")
+            component(
+              v-if="selectedItem && selectedItem.component"
+              :is="selectedItem.component"
+              class="what-we-give__illustration"
+              :key="`component-${selectedItem.id}`"
+            )
+            img(
+              v-else-if="selectedItem"
+              :key="`image-${selectedItem.id}`"
+              :src="selectedItem.image"
+              :alt="selectedItem.title"
+              :loop="1"
+            )
           .what-we-give__reticle(
-            v-show="overlayVisible && selectedItem.id > 2"
+            :class="{ 'what-we-give__reticle--visible': shouldShowReticle }"
             :style="overlayStyle"
           )
             .what-we-give__reticle-square(
@@ -66,7 +74,7 @@ const items = ref([
     number: '03',
     title: 'Деньги клиентов всегда остаются на их личных счетах',
     descr: 'Все бонусы суммируются',
-    image: '/images/partners/phone.png',
+    image: '/images/mockup.png',
   },
   {
     id: 3,
@@ -80,6 +88,8 @@ const items = ref([
 const selectedItemId = ref(items.value[0].id)
 
 const selectedItem = computed(() => items.value.find((item) => item.id === selectedItemId.value))
+
+const shouldShowReticle = computed(() => overlayVisible.value && selectedItemId.value > 2)
 
 const selectItem = (itemId) => {
   selectedItemId.value = itemId
@@ -151,7 +161,7 @@ const updatePatternSize = () => {
 
   if (!rect) return
 
-  patternSize.value = { width: rect.width, height: rect.height }
+  patternSize.value = { width: rect.width, height: rect.height * 0.8 }
   clampGroupToBounds(rect.width, rect.height)
 }
 

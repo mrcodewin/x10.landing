@@ -5,15 +5,15 @@
         h3.calculator-vp__title Калькулятор VP
 
       .calculator-vp__body
-        .calculator-vp__tabs
-          button.calculator-vp__tab(
-            v-for="line in lines"
-            :key="line.key"
-            :class="{ 'calculator-vp__tab--active': line.key === activeLine.key }"
-            @click="activeLine = line"
-          )
-            span {{ line.key }}
-            | линия
+        //- .calculator-vp__tabs
+        //-   button.calculator-vp__tab(
+        //-     v-for="line in lines"
+        //-     :key="line.key"
+        //-     :class="{ 'calculator-vp__tab--active': line.key === activeLine.key }"
+        //-     @click="activeLine = line"
+        //-   )
+        //-     span {{ line.key }}
+        //-     | линия
 
         .calculator-vp__info
           .calculator-vp__controls
@@ -25,7 +25,7 @@
                 input(
                   v-model.number="subLite"
                   type="range"
-                  min="0"
+                  min="1"
                   max="100"
                   step="1"
                 )
@@ -37,8 +37,8 @@
                 input(
                   v-model.number="subPremium"
                   type="range"
-                  min="0"
-                  max="50"
+                  min="1"
+                  max="100"
                   step="1"
                 )
 
@@ -50,8 +50,8 @@
                 input(
                   v-model.number="volume"
                   type="range"
-                  min="0"
-                  max="3000000"
+                  min="10000"
+                  max="10000000"
                   step="10000"
                 )
 
@@ -75,12 +75,6 @@
 <script setup>
 import { computed, ref } from 'vue'
 
-const lines = [
-  { key: 1, label: '', percent: 6 },
-  { key: 2, label: '', percent: 9 },
-  { key: 3, label: '', percent: 12 },
-]
-
 const qualificationList = [
   {key: 1, label: "V1", percent: 1},
   {key: 2, label: "V2", percent: 2},
@@ -90,21 +84,18 @@ const qualificationList = [
   {key: 6, label: "V6", percent: 6}
 ]
 
-const activeLine = ref(lines[0])
 const subLite = ref(1)
 const subPremium = ref(1)
-const volume = ref(1789000)
+const volume = ref(1790000)
 const qualification = ref(1)
 
-const calcInvestment = ({ subLite, qualification, subPremium, volume, percent }) => {
-  const r = percent / 100
-  const b = 0.05 * volume
+const calcInvestment = ({ subLite, qualification, subPremium, volume }) => {
+  const totalSubscriptions = subLite + subPremium
+  const liteIncome = subLite * 7.5
+  const premiumIncome = subPremium * 150
+  const volumeIncome = (volume / 10000) * 0.125 * totalSubscriptions
 
-  const growthFactor = Math.pow(1 + r, qualification)
-
-  const result = subLite * growthFactor + (subPremium + b) * ((growthFactor - 1) / r)
-
-  return result
+  return (liteIncome + premiumIncome + volumeIncome) * qualification
 }
 
 const formatCurrency = (value) => new Intl.NumberFormat('ru-RU').format(Math.round(value))
@@ -115,7 +106,6 @@ const projectedCapital = computed(() =>
     qualification: qualification.value,
     subPremium: subPremium.value,
     volume: volume.value,
-    percent: activeLine.value.percent,
   }),
 )
 </script>

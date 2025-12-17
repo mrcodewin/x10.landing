@@ -1,5 +1,5 @@
 <template lang="pug">
-section.rebate-bonus
+section.rebate-bonus(ref="rebateBonusSection")
   .container
     h3.rebate-bonus__title Rebate Bonus
 
@@ -22,6 +22,7 @@ section.rebate-bonus
         v-for="(level, idx) in rebateBonusLevels"
         :key="level.label"
         :style="{ '--t': idx / (rebateBonusLevels.length - 1) }"
+        :class="{ 'rebate-bonus__item--active': rebateLinesActive }"
       )
         span.rebate-bonus__label {{ level.label }}
         span.rebate-bonus__line
@@ -29,6 +30,11 @@ section.rebate-bonus
 </template>
 
 <script setup>
+import { useIntersectionObserver } from '@vueuse/core'
+
+const rebateBonusSection = ref(null)
+const rebateLinesActive = ref(false)
+
 const rebateBonusLevels = [
   { label: '1-я линия',  value: '15% (75$)' },
   { label: '2-я линия',  value: '5% (25$)' },
@@ -41,6 +47,14 @@ const rebateBonusLevels = [
   { label: '9-я линия',  value: '2% (10$)' },
   { label: '10-я линия', value: '2% (10$)' },
 ]
+
+useIntersectionObserver(
+  rebateBonusSection,
+  ([{ isIntersecting }]) => {
+    rebateLinesActive.value = isIntersecting
+  },
+  { threshold: 0.35 }
+)
 </script>
 
 <style scoped lang="scss" src="./rebate-bonus.scss"></style>

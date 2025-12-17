@@ -75,7 +75,7 @@
         img{
             display: block;
             width: 100%;
-            max-height: 100%;
+            max-height: 600px;
             height: auto;
             object-fit: contain;
         }
@@ -86,6 +86,13 @@
             left: 0;
             pointer-events: none;
             display: block;
+            opacity: 0;
+            transition: opacity 0.1s ease;
+            will-change: transform, opacity;
+
+            &--visible{
+                opacity: 1;
+            }
 
             &-square{
                 position: absolute;
@@ -290,23 +297,12 @@
     }
 }
 
-@keyframes liquid-glass{
-    0%{
-        transform: translate3d(-6px, -6px, 0) scale(1.02) rotate(-2deg);
-        opacity: 0.8;
-    }
-    35%{
-        transform: translate3d(4px, -2px, 0) scale(1.01) rotate(1.5deg);
-        opacity: 0.95;
-    }
-    70%{
-        transform: translate3d(-2px, 4px, 0) scale(1.03) rotate(-1deg);
-        opacity: 0.88;
-    }
-    100%{
-        transform: translate3d(-6px, -6px, 0) scale(1.02) rotate(-2deg);
-        opacity: 0.8;
-    }
+:global(.what-we-give-fade-enter-active),
+:global(.what-we-give-fade-leave-active){
+    transition: opacity 0.1s ease;
 }
-    
-    
+
+:global(.what-we-give-fade-enter-from),
+:global(.what-we-give-fade-leave-to){
+    opacity: 0;
+}

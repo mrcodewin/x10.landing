@@ -7,7 +7,9 @@
       .hero__line.label
         p Партнерская программа
 
-    .hero__running-line VAL CAPITAL VAL CAPITAL
+    .hero__running-line
+      .hero__running-track
+        span.hero__running-text(v-for="n in 8" :key="n") VAL CAPITAL
 
 </template>
 
