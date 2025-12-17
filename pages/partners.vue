@@ -13,6 +13,7 @@ main
   ReferralBonusSection
   ExtraBonusSection
   RatingBonusSection
+  ShareholderBonusSection
   RebateBonusSection
   ProfitShareBonusSection
   LifestylePromoSection
@@ -35,6 +36,7 @@ import BonusesSection from '../components/partners/bonuses/bonuses.vue'
 import ReferralBonusSection from '../components/partners/referral-bonus/referral-bonus.vue'
 import ExtraBonusSection from '../components/partners/extra-bonus/extra-bonus.vue'
 import RatingBonusSection from '../components/partners/rating-bonus/rating-bonus.vue'
+import ShareholderBonusSection from '../components/partners/shareholder-bonus/shareholder-bonus.vue';
 import RebateBonusSection from '../components/partners/rebate-bonus/rebate-bonus.vue'
 import ProfitShareBonusSection from '../components/partners/profit-share-bonus/profit-share-bonus.vue'
 import LifestylePromoSection from '../components/partners/lifestyle-promo/lifestyle-promo.vue'
