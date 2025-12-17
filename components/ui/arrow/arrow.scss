@@ -1,0 +1,29 @@
+.arrow{
+  display:inline-block;
+  position:relative;
+  width:var(--l);
+  height:var(--h);
+  background:var(--c);
+  border-radius:999px;
+}
+
+.arrow::before,
+.arrow::after{
+  content:"";
+  position:absolute;
+  right:0;
+  top:50%;
+  width:var(--head);
+  height:var(--h);
+  background:var(--c);
+  border-radius:999px;
+  transform-origin: calc(100% - (var(--h) / 2)) 50%;
+}
+
+.arrow::before{
+  transform: translateY(-50%) rotate(35deg);
+}
+
+.arrow::after{
+  transform: translateY(-50%) rotate(-35deg);
+}
