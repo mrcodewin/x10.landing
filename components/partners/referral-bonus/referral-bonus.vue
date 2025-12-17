@@ -26,7 +26,7 @@ section.referral-bonus
               span.referral-bonus__example-value 30$
               span.referral-bonus__example-action Продажа во 2 линии
 
-            .referral-bonus__example-column.line
+            UiArrow.extension__arrow(height='2px', width='100%', head='10px')
             
             .referral-bonus__example-column
               span.referral-bonus__example-value 20$
