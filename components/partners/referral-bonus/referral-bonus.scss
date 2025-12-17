@@ -1,0 +1,326 @@
+.referral-bonus {
+  margin-top: 250px;
+
+  @include media-breakpoint-down(xxl){
+      margin-top: 230px;
+  }
+
+  @include media-breakpoint-down(xl){
+      margin-top: 200px;
+  }
+
+  @include media-breakpoint-down(md){
+      margin-top: 160px;
+  }
+  &__title {
+    margin: 0 auto 80px;
+    text-align: center;
+    font-family: "Bounded";
+    font-size: 40px;
+    font-weight: 400;
+    text-transform: uppercase;
+
+    @include media-breakpoint-down(xl) {
+      font-size: 32px;
+      margin: 0 auto 40px;
+    }
+
+    @include media-breakpoint-down(md) {
+      font-size: 16px;
+      margin: 0 auto 16px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 80px;
+
+    @include media-breakpoint-down(xl) {
+      gap: 40px;
+    }
+
+    @include media-breakpoint-down(lg) {
+      flex-direction: column;
+    }
+  }
+
+  &__lines {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    gap: 131px;
+
+    @include media-breakpoint-down(xxl) {
+      gap: 63px;
+    }
+
+    @include media-breakpoint-down(xl) {
+      gap: 56px;
+    }
+
+    @include media-breakpoint-down(xl) {
+      flex: auto;
+      width: 100%;
+      justify-content: space-between;
+      gap: inherit;
+    }
+  }
+
+  &__line-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+    font-family: "Onest";
+    font-size: 16px;
+
+    @include media-breakpoint-down(md) {
+      gap: 20px;
+    }
+
+    &__label{
+      opacity: 0.6;
+      font-weight: 300;
+      font-size: 24px;
+
+      @include media-breakpoint-down(xl) {
+        font-size: 16px;
+      }
+
+      @include media-breakpoint-down(lg) {
+        font-size: 24px;
+      }
+
+      @include media-breakpoint-down(md) {
+        font-size: 12px;
+      }
+    }
+
+    &__marker {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__dot {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: $color-accent;
+
+      @include media-breakpoint-down(xl) {
+        width: 24px;
+        height: 24px;
+      }
+
+      @include media-breakpoint-down(lg) {
+        width: 38px;
+        height: 38px;
+      }
+
+      @include media-breakpoint-down(md) {
+        width: 6px;
+        height: 6px;
+      }
+    }
+
+    &__percent{
+      font-family: "Bounded";
+      font-size: 60px;
+      font-weight: 400;
+
+      @include media-breakpoint-down(xl) {
+        font-size: 32px;
+      }
+
+      @include media-breakpoint-down(lg) {
+        font-size: 60px;
+      }
+
+      @include media-breakpoint-down(md) {
+        font-size: 18px;
+      }
+    }
+
+    &__line {
+      width: 2px;
+      height: 150px;
+      background: $color-accent;
+
+      @include media-breakpoint-down(md) {
+        width: 1px;
+        height: 16px;
+      }
+    }
+  }
+
+  &__example {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-width: 420px;
+
+    @include media-breakpoint-down(lg) {
+      min-width: 100%;
+    }
+
+    &-label {
+      margin: 0;
+      font-family: "Onest";
+      font-size: 28px;
+
+      @include media-breakpoint-down(md) {
+        font-size: 16px;
+      }
+    }
+
+    &-card {
+      display: flex;
+      flex-direction: column;
+      gap: 35px;
+      padding: 40px 80px;
+      border-radius: 40px;
+      background: $color-window-bg;
+      box-shadow: inset 0 0 20px rgba(190, 190, 190, 0.25);
+
+      @include media-breakpoint-down(xl) {
+        padding: 60px;
+      }
+
+      @include media-breakpoint-down(lg) {
+        padding: 40px;
+      }
+
+      @include media-breakpoint-down(md) {
+        border-radius: 20px;
+      }
+
+      &__top{
+        display: inline-flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: fit-content;
+        max-width: 100%;
+        gap: 8px;
+        margin: 0 auto;
+      }
+
+      &__bottom{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+
+        @include media-breakpoint-down(xl) {
+          gap: 16px;
+        }
+
+        @include media-breakpoint-down(lg) {
+          gap: 24px;
+        }
+
+        @include media-breakpoint-down(md) {
+          gap: 0;
+        }
+      }
+    }
+
+    &-amount {
+      margin: 0;
+      font-family: "Bounded";
+      font-size: 40px;
+      text-align: center;
+
+      @include media-breakpoint-down(xxl) {
+        font-size: 48px;
+      }
+
+      @include media-breakpoint-down(xl) {
+        font-size: 32px;
+      }
+
+      @include media-breakpoint-down(lg) {
+        font-size: 40px;
+      }
+
+      @include media-breakpoint-down(md) {
+        font-size: 24px;
+      }
+    }
+
+    &-text{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      font-size: 16px;
+      font-weight: 300;
+
+      @include media-breakpoint-down(xl) {
+        font-size: 12px;
+      }
+
+      @include media-breakpoint-down(lg) {
+        font-size: 16px;
+      }
+
+      @include media-breakpoint-down(md) {
+        font-size: 10px;
+      }
+    }
+
+    &-column{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+
+      &.line{
+        width: 100%;
+        height: 2px;
+        background-color:  $color-accent;
+      }
+    }
+
+    &-value {
+      font-size: 60px;
+      font-family: "Bounded";
+      
+      @include media-breakpoint-down(xxl) {
+        font-size: 48px;
+      }
+
+      @include media-breakpoint-down(xl) {
+        font-size: 32px;
+      }
+
+      @include media-breakpoint-down(lg) {
+        font-size: 40px;
+      }
+
+      @include media-breakpoint-down(md) {
+        font-size: 24px;
+      }
+    }
+
+    &-action {
+      font-size: 16px;
+      text-wrap: nowrap;
+
+      @include media-breakpoint-down(xl) {
+        font-size: 12px;
+      }
+
+      @include media-breakpoint-down(lg) {
+        font-size: 16px;
+      }
+
+      @include media-breakpoint-down(md) {
+        font-size: 10px;
+      }
+    }
+  }
+}

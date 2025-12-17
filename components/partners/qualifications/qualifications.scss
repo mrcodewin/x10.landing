@@ -1,0 +1,343 @@
+.qualifications {
+  margin-top: 250px;
+
+  @include media-breakpoint-down(xxl){ margin-top: 230px; }
+  @include media-breakpoint-down(xl){  margin-top: 200px; }
+  @include media-breakpoint-down(md){  margin-top: 160px; }
+
+  &__title {
+    margin: 0 auto 24px;
+    text-align: center;
+    font-family: "Bounded";
+    font-size: 40px;
+    font-weight: 400;
+    text-transform: uppercase;
+
+    @include media-breakpoint-down(xl) {
+      font-size: 32px;
+
+      br{
+        display: none;
+      }
+    }
+
+    @include media-breakpoint-down(lg) {
+      font-size: 28px;
+      margin: 0 auto 16px;
+    }
+
+    @include media-breakpoint-down(md) {
+      font-size: 20px;
+      br{
+        display: block;
+      }
+    }
+  }
+
+  &__subtitle {
+    margin: 0 auto 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+
+    font-family: "Onest";
+    font-size: 24px;
+    text-align: center;
+
+    @include media-breakpoint-down(xl) {
+      margin: 0 auto 70px;
+      font-size: 16px;
+    }
+
+    @include media-breakpoint-down(lg) {
+      margin-bottom: 40px;
+      font-size: 16px;
+    }
+
+    @include media-breakpoint-down(md) {
+      font-size: 10px;
+    }
+  }
+
+  &__info-icon {
+    width: 30px;
+    height: 30px;
+    border: 2px solid rgba($color-white, 1);
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+
+
+    @include media-breakpoint-down(xl) {
+      width: 18px;
+      height: 18px;
+      font-size: 10px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include media-breakpoint-down(lg){
+      gap: 0;
+    }
+  }
+
+  &__timeline {
+    position: relative;
+    height: 56px;
+    --pad: 42px;
+  
+    @include media-breakpoint-down(xl) {
+      --pad: 28px;
+    }
+    @include media-breakpoint-down(lg){
+      display: none;
+    }
+
+    &-line {
+      position: absolute;
+      left: var(--pad);
+      right: var(--pad);
+      top: 28px;
+      height: 2px;
+
+      background: $color-white;
+      box-shadow: 0 0 6px rgba($color-turquoise, 0.25); // маленькая бирюзовая подсветка
+    }
+  }
+
+  &__ticks {
+    position: absolute;
+    left: var(--pad);
+    right: var(--pad);
+    top: 21px;
+
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    align-items: start;
+    pointer-events: none;
+  }
+
+  &__tick {
+    justify-self: center;
+    width: 3px;
+    height: 16px;
+
+    background: $color-white;
+    box-shadow: 0 0 6px rgba($color-turquoise, 0.25);
+  }
+
+  &__badge {
+    position: absolute;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-family: "Onest";
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1;
+    color: #fff;
+    background: $color-accent;
+    white-space: nowrap;
+
+    @include media-breakpoint-down(xl) {
+      font-size: 12px;
+    }
+  }
+
+  &__badge--mid {
+    top: -30px;
+    left: 42%;
+    transform: translateX(-50%);
+  }
+
+  &__badge--right {
+    top: -50px;
+    right: 3%;
+    max-width: 280px;
+    white-space: normal;
+    line-height: 1.2;
+    text-align: center;
+
+    @include media-breakpoint-down(xl) {
+      max-width: 220px;
+    }
+  }
+
+  &__grid {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    margin: 0 50px;
+
+    @include media-breakpoint-down(xl) {
+      margin: 0 25px;
+    }
+
+    @include media-breakpoint-down(lg){
+      display: none;
+    }
+  }
+
+  &__item {
+    flex: 1;
+    text-align: center;
+  }
+
+  &__v {
+    margin: 0 0 18px;
+    font-family: "Bounded";
+    font-size: 120px;
+    line-height: 1;
+    color: $color-turquoise;
+    text-transform: uppercase;
+
+    @include media-breakpoint-down(xxl) {
+      font-size: 60px;
+    }
+
+    @include media-breakpoint-down(xl) {
+      font-size: 48px;
+    }
+
+    @include media-breakpoint-down(md) {
+      font-size: 56px;
+    }
+  }
+
+  &__req {
+    margin: 0 0 14px;
+    font-family: "Onest";
+    font-size: 20px;
+    line-height: 120%;
+
+    @include media-breakpoint-down(xxl) {
+      font-size: 16px;
+    }
+
+    @include media-breakpoint-down(xl) {
+      font-size: 12px;
+    }
+  }
+
+  &__depth {
+    margin: 0;
+    font-family: "Onest";
+    font-size: 20px;
+    line-height: 120%;
+    color: $color-turquoise;
+
+    @include media-breakpoint-down(xxl) {
+      font-size: 16px;
+    }
+
+    @include media-breakpoint-down(xl) {
+      font-size: 12px;
+    }
+  }
+
+
+  &__list {
+    display: none;
+    flex-direction: column;
+    gap: 26px;
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @include media-breakpoint-down(lg) {
+      display: flex;
+    }
+
+    &-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    &-v {
+      margin: 0;
+      font-family: "Bounded";
+      font-size: 60px;
+      line-height: 1;
+      color: $color-turquoise;
+      text-transform: uppercase;
+
+      @include media-breakpoint-down(md) {
+        font-size: 32px;
+      }
+    }
+
+    &-mid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-width: 0;
+      width: 100%;
+    }
+
+    &-depth {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-family: "Onest";
+      font-size: 16px;
+      line-height: 120%;
+      white-space: nowrap;
+
+      padding-bottom: 10px;
+      border-bottom: 1px solid $color-white;
+
+      @include media-breakpoint-down(md) {
+        font-size: 8px;
+      }
+    }
+
+    &-req {
+      margin: 0;
+      font-family: "Onest";
+      font-size: 20px;
+      line-height: 120%;
+      text-align: left;
+      min-width: 250px;
+
+      @include media-breakpoint-down(md) {
+        font-size: 10px;
+        min-width: 130px;
+      }
+    }
+
+    &-badge {
+      align-self: center;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: "Onest";
+      font-size: 16px;
+      line-height: 120%;
+      color: $color-white;
+      background: $color-accent;
+      white-space: nowrap;
+
+      @include media-breakpoint-down(md) {
+        font-size: 8px;
+      }
+
+      &--wide {
+        align-self: flex-start;
+        white-space: normal;
+        text-align: center;
+      }
+    }
+  }
+}

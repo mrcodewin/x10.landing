@@ -1,0 +1,137 @@
+.example-achievements {
+  margin-top: 250px;
+
+  @include media-breakpoint-down(xxl){ margin-top: 230px; }
+  @include media-breakpoint-down(xl){  margin-top: 200px; }
+  @include media-breakpoint-down(md){  margin-top: 160px; }
+
+  &__title {
+    margin: 0 auto 80px;
+    text-align: center;
+    font-family: "Bounded";
+    font-size: 40px;
+    font-weight: 400;
+    text-transform: uppercase;
+
+    @include media-breakpoint-down(xl) { margin: 0 auto 40px; font-size: 32px; }
+    @include media-breakpoint-down(md) { font-size: 20px; }
+  }
+
+  &__content {
+    position: relative;
+    width: 100%;
+    height: 600px;
+
+    @include media-breakpoint-down(md) {
+      display: none;
+    }
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    object-position: center;
+  }
+
+  &__labels {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    pointer-events: none;
+  }
+
+  &__label {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    transform: translate(-50%, -50%);
+    width: 180px;
+    text-align: center;
+
+    @include media-breakpoint-down(md) {
+      left: var(--xm);
+      top: var(--ym);
+      width: 160px;
+    }
+  }
+
+  &__head {
+    margin: 0 0 6px;
+    font-family: "Bounded";
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+
+  &__v {
+    color: $color-accent;
+    font-size: 14px;
+    margin-right: 8px;
+  }
+
+  &__vp {
+    color: #fff;
+    font-size: 16px;
+  }
+
+  &__text {
+    margin: 0;
+    font-family: "Onest";
+    font-size: 11px;
+    line-height: 1.35;
+    opacity: 0.85;
+  }
+
+
+  &__list {
+    display: none;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    flex-direction: column;
+    gap: 24px;
+
+    @include media-breakpoint-down(md) {
+      display: flex;
+    }
+
+    &-top {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 6px;
+    }
+
+    &-vp {
+      font-family: "Bounded";
+      font-size: 24px;
+      line-height: 1;
+      color: #fff;
+      white-space: nowrap;
+      margin-bottom: 8px;
+    }
+
+    &-v {
+      font-family: "Bounded";
+      font-size: 24px;
+      line-height: 1;
+      color: $color-accent;
+      white-space: nowrap;
+    }
+
+    &-text {
+      margin: 0;
+      font-family: "Onest";
+      font-size: 10px;
+      line-height: 100%;
+    }
+  }
+}
