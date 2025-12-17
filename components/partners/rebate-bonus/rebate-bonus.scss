@@ -229,10 +229,23 @@
     width: 2px;
     height: var(--len);
     background: $color-turquoise;
+    transform-origin: top;
+    transform: scaleY(0);
+    transition: transform 0.8s ease;
 
     @include media-breakpoint-down(lg) {
       height: 2px;
       width: var(--len);
+      transform-origin: left;
+      transform: scaleX(0);
+    }
+  }
+
+  &__item--active &__line {
+    transform: scaleY(1);
+
+    @include media-breakpoint-down(lg) {
+      transform: scaleX(1);
     }
   }
 

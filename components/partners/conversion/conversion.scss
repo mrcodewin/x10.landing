@@ -96,6 +96,9 @@
                 font-weight: 400;
                 margin: 0;
                 text-transform: uppercase;
+                display: flex;
+                align-items: center;
+                gap: 24px;
 
                 @include media-breakpoint-down(xxl){
                     font-size: 48px;
@@ -111,10 +114,21 @@
 
                 @include media-breakpoint-down(md){
                     font-size: 18px;
+                    gap: 12px;
                 }
             }
             
         }
+    }
+
+    &__number{
+        display: inline-flex;
+        align-items: center;
+    }
+
+    &__equals{
+        display: inline-flex;
+        align-items: center;
     }
 
     

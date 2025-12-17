@@ -189,6 +189,14 @@
   &__item {
     flex: 1;
     text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+
+  &__item--visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   &__v {
@@ -262,6 +270,14 @@
       align-items: center;
       justify-content: space-between;
       gap: 20px;
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    &-item--visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     &-v {

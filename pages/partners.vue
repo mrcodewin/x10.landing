@@ -1,5 +1,5 @@
 <template lang="pug">
-main
+main.partners-page
   TopbarSection
 
   HeroSection
@@ -15,7 +15,7 @@ main
   RatingBonusSection
   ShareholderBonusSection
   RebateBonusSection
-  ProfitShareBonusSection
+  //- ProfitShareBonusSection
   LifestylePromoSection
   ExampleAchievementsSection
 
@@ -44,3 +44,41 @@ import ExampleAchievementsSection from '../components/partners/example-achieveme
 
 import FooterSection from '@/components/common/footer/footer.vue';
 </script>
+
+<style lang="scss">
+@use '@/assets/scss/variables' as *;
+@use '@/assets/scss/mixins' as *;
+
+.partners-page {
+  position: relative;
+  min-height: 100vh;
+  isolation: isolate;
+  overflow-x: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: clamp(960px, 88vw, 1680px);
+    height: clamp(680px, 72vw, 1320px);
+    top: clamp(-520px, -28vw, -120px);
+    left: 85%;
+    transform: translate(-50%, 0) rotate(-16deg);
+    background:
+      linear-gradient(120deg, rgba($color-white, 0.14) 0%, rgba($color-turquoise, 0.26) 34%, rgba($color-white, 0.1) 58%, rgba($color-turquoise, 0.04) 82%, rgba($color-turquoise, 0) 96%),
+      radial-gradient(ellipse at 68% 30%, rgba($color-white, 0.36) 0%, rgba($color-white, 0.16) 26%, rgba($color-white, 0) 54%),
+      radial-gradient(ellipse at 75% 44%, rgba($color-turquoise, 0.8) 0%, rgba($color-turquoise, 0.5) 32%, rgba($color-turquoise, 0.18) 60%, rgba($color-turquoise, 0) 82%),
+      radial-gradient(ellipse at 36% 56%, rgba($color-white, 0.16) 0%, rgba($color-white, 0) 48%);
+    filter: blur(96px);
+    opacity: 0.92;
+    pointer-events: none;
+    z-index: -1;
+
+    @include media-breakpoint-down(md) {
+      width: clamp(680px, 118vw, 1020px);
+      height: clamp(560px, 110vw, 920px);
+      top: clamp(-420px, -36vw, -180px);
+      transform: translate(-50%, 0) rotate(-10deg);
+    }
+  }
+}
+</style>
