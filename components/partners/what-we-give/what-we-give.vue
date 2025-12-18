@@ -18,7 +18,7 @@
               :loop="1"
             )
           .what-we-give__reticle(
-            :class="{ 'what-we-give__reticle--visible': shouldShowReticle }"
+            v-show="overlayVisible && selectedItem.id > 2"
             :style="overlayStyle"
           )
             .what-we-give__reticle-square(
@@ -88,8 +88,6 @@ const items = ref([
 const selectedItemId = ref(items.value[0].id)
 
 const selectedItem = computed(() => items.value.find((item) => item.id === selectedItemId.value))
-
-const shouldShowReticle = computed(() => overlayVisible.value && selectedItemId.value > 2)
 
 const selectItem = (itemId) => {
   selectedItemId.value = itemId

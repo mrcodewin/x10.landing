@@ -86,9 +86,6 @@
             left: 0;
             pointer-events: none;
             display: block;
-            opacity: 0;
-            transition: opacity 0.1s ease;
-            will-change: transform, opacity;
 
             &--visible{
                 opacity: 1;
@@ -295,14 +292,4 @@
             }
         }
     }
-}
-
-:global(.what-we-give-fade-enter-active),
-:global(.what-we-give-fade-leave-active){
-    transition: opacity 0.1s ease;
-}
-
-:global(.what-we-give-fade-enter-from),
-:global(.what-we-give-fade-leave-to){
-    opacity: 0;
 }
