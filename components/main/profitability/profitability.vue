@@ -36,8 +36,12 @@ const modules = [Pagination]
 const baseSlides = [
   { id: 0, src: '/images/profitability/pro1.jpg', alt: 'Доходность сигнала 1' },
   { id: 1, src: '/images/profitability/pro2.jpg', alt: 'Доходность сигнала 2' },
-  { id: 2, src: '/images/profitability/pro1.jpg', alt: 'Доходность сигнала 3' },
-  { id: 3, src: '/images/profitability/pro3.jpg', alt: 'Доходность сигнала 4' },
+  { id: 2, src: '/images/profitability/pro3.jpg', alt: 'Доходность сигнала 3' },
+  { id: 3, src: '/images/profitability/pro4.jpg', alt: 'Доходность сигнала 4' },
+  { id: 4, src: '/images/profitability/pro5.jpg', alt: 'Доходность сигнала 5' },
+  { id: 5, src: '/images/profitability/pro6.jpg', alt: 'Доходность сигнала 6' },
+  { id: 6, src: '/images/profitability/pro7.jpg', alt: 'Доходность сигнала 7' },
+  { id: 7, src: '/images/profitability/pro8.jpg', alt: 'Доходность сигнала 8' },
 ]
 
 const slides = [
